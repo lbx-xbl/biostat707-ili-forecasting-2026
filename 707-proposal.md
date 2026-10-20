@@ -3,7 +3,7 @@
 *A Retrospective Comparison of Ridge Regression, Gradient Boosting, and LSTM*
 
 **BIOSTAT 707 Final Project Proposal — Fall 2026**  
-**Team:** Five-member group  
+**Team:** Bowen Zhang, Yufei Wang, Jiaxiang Xue, Lanbu Xi, Shuyang Yu  
 **Date:** October 20, 2026
 
 ## 1. Research question and motivation
@@ -123,11 +123,11 @@ The project contribution will be a transparent comparison and explanation of the
 
 | Member responsibility | Main contribution |
 | --- | --- |
-| Data and provenance lead | Source/license documentation, frozen snapshot, data dictionary, EDA, and missingness audit. |
-| Temporal validation lead | CDC week handling, window eligibility, split boundaries, preprocessing checks, and reproducibility review. |
-| Baseline and tree-model lead | Persistence, Ridge, and gradient-boosting specifications; interpretation of regional and seasonal errors. |
-| Recurrent-model lead | LSTM architecture and training-curve explanation; checkpoint and model-reload documentation. |
-| Evaluation and report lead | Continuous calibration/discrimination diagnostics, paired bootstrap, figures, and report integration. |
+| Bowen Zhang — Data and provenance lead | Source/license documentation, frozen snapshot, data dictionary, EDA, and missingness audit. |
+| Yufei Wang — Temporal validation lead | CDC week handling, window eligibility, split boundaries, preprocessing checks, and reproducibility review. |
+| Jiaxiang Xue — Baseline and tree-model lead | Persistence, Ridge, and gradient-boosting specifications; interpretation of regional and seasonal errors. |
+| Lanbu Xi — Recurrent-model lead | LSTM architecture and training-curve explanation; checkpoint and model-reload documentation. |
+| Shuyang Yu — Evaluation and report lead | Continuous calibration/discrimination diagnostics, paired bootstrap, figures, and report integration. |
 
 All five members will review the shared conclusions and explain their own contribution. Work will proceed through three milestones: preserve and document the pilot; complete the specified exploratory evaluation; then review and finalize the report and reproducible repository.
 
