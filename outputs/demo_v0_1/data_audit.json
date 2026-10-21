@@ -1,0 +1,78 @@
+{
+  "status": "PASS",
+  "rows": 4690,
+  "regions": [
+    "hhs1",
+    "hhs2",
+    "hhs3",
+    "hhs4",
+    "hhs5",
+    "hhs6",
+    "hhs7",
+    "hhs8",
+    "hhs9",
+    "hhs10"
+  ],
+  "weeks_per_region": {
+    "hhs1": 469,
+    "hhs10": 469,
+    "hhs2": 469,
+    "hhs3": 469,
+    "hhs4": 469,
+    "hhs5": 469,
+    "hhs6": 469,
+    "hhs7": 469,
+    "hhs8": 469,
+    "hhs9": 469
+  },
+  "first_week": 201040,
+  "last_week": 201939,
+  "duplicates": 0,
+  "missing_wili": 0,
+  "consecutive_day_gap": 7,
+  "calendar": "CDC/MMWR; Saturday week end",
+  "week53": [
+    201453
+  ],
+  "units": "wili percent; errors in percentage points",
+  "source_snapshot": {
+    "url": "https://api.delphi.cmu.edu/epidata/fluview/?regions=hhs1,hhs2,hhs3,hhs4,hhs5,hhs6,hhs7,hhs8,hhs9,hhs10&epiweeks=201040-201939",
+    "fetched_at_utc": "2026-10-20T13:07:16.658569+00:00",
+    "http_status": 200,
+    "bytes": 1255554,
+    "sha256": "f194ed2906f5ce5a3e404d180a574178d1f9285819f5ed4289f47f26aba50cfe",
+    "fields": [
+      "epiweek",
+      "ili",
+      "issue",
+      "lag",
+      "num_age_0",
+      "num_age_1",
+      "num_age_2",
+      "num_age_3",
+      "num_age_4",
+      "num_age_5",
+      "num_ili",
+      "num_patients",
+      "num_providers",
+      "region",
+      "release_date",
+      "wili"
+    ],
+    "rows": 4690,
+    "api_result": 1,
+    "api_message": "success",
+    "source": "CDC ILINet via CMU Delphi",
+    "license": "Public Domain US Government",
+    "license_reference": "https://cmu-delphi.github.io/delphi-epidata/api/v5-signals/fluview_ilinet.html",
+    "snapshot_path": "data/raw/fluview_201040_201939.json"
+  },
+  "release_date_range": [
+    "2017-10-24",
+    "2020-10-02"
+  ],
+  "issue_range": [
+    201740,
+    202039
+  ]
+}
