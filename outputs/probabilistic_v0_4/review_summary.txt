@@ -1,0 +1,7 @@
+Fresh independent read-only review: READY for exploratory scientific reporting; no Critical or Important issues.
+23 probabilistic tests and independent verify(write=False) passed.
+Verified all 600 validation/test region/model/season panels against complete CDC target-week ranges, including week53.
+Verified prior-validation lineage, temporal isolation, label perturbation, WIS scaling/median/tail directions/inclusive coverage, all 242 prior hashes and stated scientific limitations.
+Minor reporting observation: illustration selection was not recorded in frozen config/protocol. Although report code was written before first WIS execution in the session, final labels now simply describe the illustration without a prespecification claim. No computational change.
+Reviewer did not assess packaging, visual layout, fresh-machine dependency installation or retraining/reloading previous models. Parent visually inspected all seven figures and independently validates archive extraction; fresh-machine installation was not tested. No point models were retrained/reloaded in this stage.
+Final report-only edits add severe-season coverage interpretation and point-mass caveat for inclusive quantile frequencies.

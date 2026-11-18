@@ -1,0 +1,532 @@
+FFFFFFFFFFFFFFFFFFFFF                                                    [100%]
+=================================== FAILURES ===================================
+_____________________ test_wis_hand_example_and_components _____________________
+
+    def test_wis_hand_example_and_components():
+>       r=score([6.],[[0.,2.,4.]],LEVELS)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_probabilistic/test_core.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+y = [6.0], q = [[0.0, 2.0, 4.0]], levels = [0.1, 0.5, 0.9]
+
+>   def score(y,q,levels): raise NotImplementedError
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+probabilistic/core.py:2: NotImplementedError
+___________________ test_lower_tail_and_inclusive_endpoints ____________________
+
+    def test_lower_tail_and_inclusive_endpoints():
+>       r=score([-2.,0.,4.],np.tile([0.,2.,4.],(3,1)),LEVELS)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_probabilistic/test_core.py:27: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+y = [-2.0, 0.0, 4.0]
+q = array([[0., 2., 4.],
+       [0., 2., 4.],
+       [0., 2., 4.]])
+levels = [0.1, 0.5, 0.9]
+
+>   def score(y,q,levels): raise NotImplementedError
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+probabilistic/core.py:2: NotImplementedError
+____________________ test_degenerate_wis_is_absolute_error _____________________
+
+    def test_degenerate_wis_is_absolute_error():
+        levels=[.01,.025]+[i/20 for i in range(1,20)]+[.975,.99]
+>       r=score([0.,3.,10.],np.repeat([[2.],[3.],[5.]],len(levels),axis=1),levels)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_probabilistic/test_core.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+y = [0.0, 3.0, 10.0]
+q = array([[2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2.,
+        2., 2., 2., 2., 2., 2., 2.],
+       [3... 3., 3.],
+       [5., 5., 5., 5., 5., 5., 5., 5., 5., 5., 5., 5., 5., 5., 5., 5.,
+        5., 5., 5., 5., 5., 5., 5.]])
+levels = [0.01, 0.025, 0.05, 0.1, 0.15, 0.2, ...]
+
+>   def score(y,q,levels): raise NotImplementedError
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+probabilistic/core.py:2: NotImplementedError
+_____________________ test_wis_matches_independent_pinball _____________________
+
+    def test_wis_matches_independent_pinball():
+        rng=np.random.default_rng(10);q=np.sort(rng.normal(size=(37,3)),axis=1);y=rng.normal(size=37)
+        e=y[:,None]-q;check=2*np.maximum(np.array(LEVELS)*e,(np.array(LEVELS)-1)*e).mean(axis=1)
+>       np.testing.assert_allclose(score(y,q,LEVELS)['wis'],check)
+                                   ^^^^^^^^^^^^^^^^^
+
+tests_probabilistic/test_core.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+y = array([ 2.07017858,  0.45343721,  1.0084298 , -0.4527093 , -1.46340463,
+        1.21160857, -0.71186463,  1.65205247, ... -0.9573409 ,
+        0.23714514,  0.40413649, -0.7182034 , -1.61524157, -0.28312493,
+       -0.11770311,  1.30197725])
+q = array([[-1.10333845, -0.78180526, -0.72502464],
+       [-0.24858073,  0.12648305,  0.26697586],
+       [ 0.47518364,  ...0665151,  0.11714239],
+       [-0.59636277,  0.93599043,  0.99468715],
+       [-1.19114957, -0.30668293,  0.02648995]])
+levels = [0.1, 0.5, 0.9]
+
+>   def score(y,q,levels): raise NotImplementedError
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+probabilistic/core.py:2: NotImplementedError
+____________________ test_invalid_quantile_levels[levels0] _____________________
+
+levels = [0.1, 0.9]
+
+    @pytest.mark.parametrize('levels',[[.1,.9],[.1,.5,.8],[0,.5,1],[.1,.5,.5,.9],[.9,.5,.1],[.1,np.nan,.9]])
+    def test_invalid_quantile_levels(levels):
+>       with pytest.raises(ValueError): validate_levels(levels)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_probabilistic/test_core.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+levels = [0.1, 0.9]
+
+>   def validate_levels(levels): raise NotImplementedError
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+probabilistic/core.py:1: NotImplementedError
+____________________ test_invalid_quantile_levels[levels1] _____________________
+
+levels = [0.1, 0.5, 0.8]
+
+    @pytest.mark.parametrize('levels',[[.1,.9],[.1,.5,.8],[0,.5,1],[.1,.5,.5,.9],[.9,.5,.1],[.1,np.nan,.9]])
+    def test_invalid_quantile_levels(levels):
+>       with pytest.raises(ValueError): validate_levels(levels)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_probabilistic/test_core.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+levels = [0.1, 0.5, 0.8]
+
+>   def validate_levels(levels): raise NotImplementedError
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+probabilistic/core.py:1: NotImplementedError
+____________________ test_invalid_quantile_levels[levels2] _____________________
+
+levels = [0, 0.5, 1]
+
+    @pytest.mark.parametrize('levels',[[.1,.9],[.1,.5,.8],[0,.5,1],[.1,.5,.5,.9],[.9,.5,.1],[.1,np.nan,.9]])
+    def test_invalid_quantile_levels(levels):
+>       with pytest.raises(ValueError): validate_levels(levels)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_probabilistic/test_core.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+levels = [0, 0.5, 1]
+
+>   def validate_levels(levels): raise NotImplementedError
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+probabilistic/core.py:1: NotImplementedError
+____________________ test_invalid_quantile_levels[levels3] _____________________
+
+levels = [0.1, 0.5, 0.5, 0.9]
+
+    @pytest.mark.parametrize('levels',[[.1,.9],[.1,.5,.8],[0,.5,1],[.1,.5,.5,.9],[.9,.5,.1],[.1,np.nan,.9]])
+    def test_invalid_quantile_levels(levels):
+>       with pytest.raises(ValueError): validate_levels(levels)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_probabilistic/test_core.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+levels = [0.1, 0.5, 0.5, 0.9]
+
+>   def validate_levels(levels): raise NotImplementedError
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+probabilistic/core.py:1: NotImplementedError
+____________________ test_invalid_quantile_levels[levels4] _____________________
+
+levels = [0.9, 0.5, 0.1]
+
+    @pytest.mark.parametrize('levels',[[.1,.9],[.1,.5,.8],[0,.5,1],[.1,.5,.5,.9],[.9,.5,.1],[.1,np.nan,.9]])
+    def test_invalid_quantile_levels(levels):
+>       with pytest.raises(ValueError): validate_levels(levels)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_probabilistic/test_core.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+levels = [0.9, 0.5, 0.1]
+
+>   def validate_levels(levels): raise NotImplementedError
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+probabilistic/core.py:1: NotImplementedError
+____________________ test_invalid_quantile_levels[levels5] _____________________
+
+levels = [0.1, nan, 0.9]
+
+    @pytest.mark.parametrize('levels',[[.1,.9],[.1,.5,.8],[0,.5,1],[.1,.5,.5,.9],[.9,.5,.1],[.1,np.nan,.9]])
+    def test_invalid_quantile_levels(levels):
+>       with pytest.raises(ValueError): validate_levels(levels)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_probabilistic/test_core.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+levels = [0.1, nan, 0.9]
+
+>   def validate_levels(levels): raise NotImplementedError
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+probabilistic/core.py:1: NotImplementedError
+_______________________ test_invalid_forecast_arrays[q0] _______________________
+
+q = [[2, 1, 3]]
+
+    @pytest.mark.parametrize('q',[[[2,1,3]],[[1,np.nan,3]],[[1,2]]])
+    def test_invalid_forecast_arrays(q):
+>       with pytest.raises(ValueError):score([2],q,LEVELS)
+                                       ^^^^^^^^^^^^^^^^^^^
+
+tests_probabilistic/test_core.py:47: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+y = [2], q = [[2, 1, 3]], levels = [0.1, 0.5, 0.9]
+
+>   def score(y,q,levels): raise NotImplementedError
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+probabilistic/core.py:2: NotImplementedError
+_______________________ test_invalid_forecast_arrays[q1] _______________________
+
+q = [[1, nan, 3]]
+
+    @pytest.mark.parametrize('q',[[[2,1,3]],[[1,np.nan,3]],[[1,2]]])
+    def test_invalid_forecast_arrays(q):
+>       with pytest.raises(ValueError):score([2],q,LEVELS)
+                                       ^^^^^^^^^^^^^^^^^^^
+
+tests_probabilistic/test_core.py:47: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+y = [2], q = [[1, nan, 3]], levels = [0.1, 0.5, 0.9]
+
+>   def score(y,q,levels): raise NotImplementedError
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+probabilistic/core.py:2: NotImplementedError
+_______________________ test_invalid_forecast_arrays[q2] _______________________
+
+q = [[1, 2]]
+
+    @pytest.mark.parametrize('q',[[[2,1,3]],[[1,np.nan,3]],[[1,2]]])
+    def test_invalid_forecast_arrays(q):
+>       with pytest.raises(ValueError):score([2],q,LEVELS)
+                                       ^^^^^^^^^^^^^^^^^^^
+
+tests_probabilistic/test_core.py:47: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+y = [2], q = [[1, 2]], levels = [0.1, 0.5, 0.9]
+
+>   def score(y,q,levels): raise NotImplementedError
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+probabilistic/core.py:2: NotImplementedError
+______________ test_previous_residuals_and_test_label_invariance _______________
+
+    def test_previous_residuals_and_test_label_invariance():
+>       old,new=panels();c=cfg();t=residual_quantiles(old,new,c,'2013-2014')
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_probabilistic/test_core.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+validation =      sample_id region  origin_week  ... y_pred  y_true       fold
+0  hhs1_201337   hhs1       201337  ...    1.0     2... ...    1.0     2.0  2013-2014
+7  hhs2_201336   hhs2       201336  ...    1.0     3.0  2013-2014
+
+[8 rows x 11 columns]
+origins =      sample_id region  origin_week  ...        model  y_pred       fold
+0  hhs1_201340   hhs1       201340  ...  Persi...Ridge     1.0  2013-2014
+7  hhs2_201341   hhs2       201341  ...        Ridge     1.0  2013-2014
+
+[8 rows x 10 columns]
+cfg = {'models': ['Persistence', 'Ridge'], 'regions': ['hhs1', 'hhs2'], 'quantiles': [0.1, 0.5, 0.9], 'bounds': [0.0, 100.0]}
+season = '2013-2014'
+
+>   def residual_quantiles(validation,origins,cfg,season): raise NotImplementedError
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+probabilistic/core.py:3: NotImplementedError
+________________________ test_future_residuals_rejected ________________________
+
+    def test_future_residuals_rejected():
+        old,new=panels();old.loc[0,'target_date']='2013-10-19'
+>       with pytest.raises(ValueError):residual_quantiles(old,new,cfg(),'2013-2014')
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_probabilistic/test_core.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+validation =      sample_id region  origin_week  ... y_pred  y_true       fold
+0  hhs1_201337   hhs1       201337  ...    1.0     2... ...    1.0     2.0  2013-2014
+7  hhs2_201336   hhs2       201336  ...    1.0     3.0  2013-2014
+
+[8 rows x 11 columns]
+origins =      sample_id region  origin_week  ...        model  y_pred       fold
+0  hhs1_201340   hhs1       201340  ...  Persi...Ridge     1.0  2013-2014
+7  hhs2_201341   hhs2       201341  ...        Ridge     1.0  2013-2014
+
+[8 rows x 10 columns]
+cfg = {'models': ['Persistence', 'Ridge'], 'regions': ['hhs1', 'hhs2'], 'quantiles': [0.1, 0.5, 0.9], 'bounds': [0.0, 100.0]}
+season = '2013-2014'
+
+>   def residual_quantiles(validation,origins,cfg,season): raise NotImplementedError
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+probabilistic/core.py:3: NotImplementedError
+_____________________ test_wrong_previous_season_rejected ______________________
+
+    def test_wrong_previous_season_rejected():
+        old,new=panels();old['target_season']='2011-2012'
+>       with pytest.raises(ValueError):residual_quantiles(old,new,cfg(),'2013-2014')
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_probabilistic/test_core.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+validation =      sample_id region  origin_week  ... y_pred  y_true       fold
+0  hhs1_201337   hhs1       201337  ...    1.0     2... ...    1.0     2.0  2013-2014
+7  hhs2_201336   hhs2       201336  ...    1.0     3.0  2013-2014
+
+[8 rows x 11 columns]
+origins =      sample_id region  origin_week  ...        model  y_pred       fold
+0  hhs1_201340   hhs1       201340  ...  Persi...Ridge     1.0  2013-2014
+7  hhs2_201341   hhs2       201341  ...        Ridge     1.0  2013-2014
+
+[8 rows x 10 columns]
+cfg = {'models': ['Persistence', 'Ridge'], 'regions': ['hhs1', 'hhs2'], 'quantiles': [0.1, 0.5, 0.9], 'bounds': [0.0, 100.0]}
+season = '2013-2014'
+
+>   def residual_quantiles(validation,origins,cfg,season): raise NotImplementedError
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+probabilistic/core.py:3: NotImplementedError
+______________________ test_bad_panels_rejected[missing] _______________________
+
+damage = 'missing'
+
+    @pytest.mark.parametrize('damage',['missing','duplicate','truth','gap'])
+    def test_bad_panels_rejected(damage):
+        old,new=panels()
+        if damage=='missing':old=old.iloc[1:]
+        if damage=='duplicate':old=pd.concat([old,old.iloc[:1]])
+        if damage=='truth':old.loc[0,'y_true']=9.
+        if damage=='gap':new.loc[0,'target_date']='2013-11-02'
+>       with pytest.raises(ValueError):residual_quantiles(old,new,cfg(),'2013-2014')
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_probabilistic/test_core.py:72: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+validation =      sample_id region  origin_week  ... y_pred  y_true       fold
+1  hhs1_201336   hhs1       201336  ...    1.0     3... ...    1.0     2.0  2013-2014
+7  hhs2_201336   hhs2       201336  ...    1.0     3.0  2013-2014
+
+[7 rows x 11 columns]
+origins =      sample_id region  origin_week  ...        model  y_pred       fold
+0  hhs1_201340   hhs1       201340  ...  Persi...Ridge     1.0  2013-2014
+7  hhs2_201341   hhs2       201341  ...        Ridge     1.0  2013-2014
+
+[8 rows x 10 columns]
+cfg = {'models': ['Persistence', 'Ridge'], 'regions': ['hhs1', 'hhs2'], 'quantiles': [0.1, 0.5, 0.9], 'bounds': [0.0, 100.0]}
+season = '2013-2014'
+
+>   def residual_quantiles(validation,origins,cfg,season): raise NotImplementedError
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+probabilistic/core.py:3: NotImplementedError
+_____________________ test_bad_panels_rejected[duplicate] ______________________
+
+damage = 'duplicate'
+
+    @pytest.mark.parametrize('damage',['missing','duplicate','truth','gap'])
+    def test_bad_panels_rejected(damage):
+        old,new=panels()
+        if damage=='missing':old=old.iloc[1:]
+        if damage=='duplicate':old=pd.concat([old,old.iloc[:1]])
+        if damage=='truth':old.loc[0,'y_true']=9.
+        if damage=='gap':new.loc[0,'target_date']='2013-11-02'
+>       with pytest.raises(ValueError):residual_quantiles(old,new,cfg(),'2013-2014')
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_probabilistic/test_core.py:72: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+validation =      sample_id region  origin_week  ... y_pred  y_true       fold
+0  hhs1_201337   hhs1       201337  ...    1.0     2... ...    1.0     3.0  2013-2014
+0  hhs1_201337   hhs1       201337  ...    1.0     2.0  2013-2014
+
+[9 rows x 11 columns]
+origins =      sample_id region  origin_week  ...        model  y_pred       fold
+0  hhs1_201340   hhs1       201340  ...  Persi...Ridge     1.0  2013-2014
+7  hhs2_201341   hhs2       201341  ...        Ridge     1.0  2013-2014
+
+[8 rows x 10 columns]
+cfg = {'models': ['Persistence', 'Ridge'], 'regions': ['hhs1', 'hhs2'], 'quantiles': [0.1, 0.5, 0.9], 'bounds': [0.0, 100.0]}
+season = '2013-2014'
+
+>   def residual_quantiles(validation,origins,cfg,season): raise NotImplementedError
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+probabilistic/core.py:3: NotImplementedError
+_______________________ test_bad_panels_rejected[truth] ________________________
+
+damage = 'truth'
+
+    @pytest.mark.parametrize('damage',['missing','duplicate','truth','gap'])
+    def test_bad_panels_rejected(damage):
+        old,new=panels()
+        if damage=='missing':old=old.iloc[1:]
+        if damage=='duplicate':old=pd.concat([old,old.iloc[:1]])
+        if damage=='truth':old.loc[0,'y_true']=9.
+        if damage=='gap':new.loc[0,'target_date']='2013-11-02'
+>       with pytest.raises(ValueError):residual_quantiles(old,new,cfg(),'2013-2014')
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_probabilistic/test_core.py:72: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+validation =      sample_id region  origin_week  ... y_pred  y_true       fold
+0  hhs1_201337   hhs1       201337  ...    1.0     9... ...    1.0     2.0  2013-2014
+7  hhs2_201336   hhs2       201336  ...    1.0     3.0  2013-2014
+
+[8 rows x 11 columns]
+origins =      sample_id region  origin_week  ...        model  y_pred       fold
+0  hhs1_201340   hhs1       201340  ...  Persi...Ridge     1.0  2013-2014
+7  hhs2_201341   hhs2       201341  ...        Ridge     1.0  2013-2014
+
+[8 rows x 10 columns]
+cfg = {'models': ['Persistence', 'Ridge'], 'regions': ['hhs1', 'hhs2'], 'quantiles': [0.1, 0.5, 0.9], 'bounds': [0.0, 100.0]}
+season = '2013-2014'
+
+>   def residual_quantiles(validation,origins,cfg,season): raise NotImplementedError
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+probabilistic/core.py:3: NotImplementedError
+________________________ test_bad_panels_rejected[gap] _________________________
+
+damage = 'gap'
+
+    @pytest.mark.parametrize('damage',['missing','duplicate','truth','gap'])
+    def test_bad_panels_rejected(damage):
+        old,new=panels()
+        if damage=='missing':old=old.iloc[1:]
+        if damage=='duplicate':old=pd.concat([old,old.iloc[:1]])
+        if damage=='truth':old.loc[0,'y_true']=9.
+        if damage=='gap':new.loc[0,'target_date']='2013-11-02'
+>       with pytest.raises(ValueError):residual_quantiles(old,new,cfg(),'2013-2014')
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_probabilistic/test_core.py:72: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+validation =      sample_id region  origin_week  ... y_pred  y_true       fold
+0  hhs1_201337   hhs1       201337  ...    1.0     2... ...    1.0     2.0  2013-2014
+7  hhs2_201336   hhs2       201336  ...    1.0     3.0  2013-2014
+
+[8 rows x 11 columns]
+origins =      sample_id region  origin_week  ...        model  y_pred       fold
+0  hhs1_201340   hhs1       201340  ...  Persi...Ridge     1.0  2013-2014
+7  hhs2_201341   hhs2       201341  ...        Ridge     1.0  2013-2014
+
+[8 rows x 10 columns]
+cfg = {'models': ['Persistence', 'Ridge'], 'regions': ['hhs1', 'hhs2'], 'quantiles': [0.1, 0.5, 0.9], 'bounds': [0.0, 100.0]}
+season = '2013-2014'
+
+>   def residual_quantiles(validation,origins,cfg,season): raise NotImplementedError
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+probabilistic/core.py:3: NotImplementedError
+___________________ test_support_projection_and_no_crossing ____________________
+
+    def test_support_projection_and_no_crossing():
+>       old,new=panels();t=residual_quantiles(old,new,cfg(),'2013-2014')
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_probabilistic/test_core.py:75: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+validation =      sample_id region  origin_week  ... y_pred  y_true       fold
+0  hhs1_201337   hhs1       201337  ...    1.0     2... ...    1.0     2.0  2013-2014
+7  hhs2_201336   hhs2       201336  ...    1.0     3.0  2013-2014
+
+[8 rows x 11 columns]
+origins =      sample_id region  origin_week  ...        model  y_pred       fold
+0  hhs1_201340   hhs1       201340  ...  Persi...Ridge     1.0  2013-2014
+7  hhs2_201341   hhs2       201341  ...        Ridge     1.0  2013-2014
+
+[8 rows x 10 columns]
+cfg = {'models': ['Persistence', 'Ridge'], 'regions': ['hhs1', 'hhs2'], 'quantiles': [0.1, 0.5, 0.9], 'bounds': [0.0, 100.0]}
+season = '2013-2014'
+
+>   def residual_quantiles(validation,origins,cfg,season): raise NotImplementedError
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+probabilistic/core.py:3: NotImplementedError
+=========================== short test summary info ============================
+FAILED tests_probabilistic/test_core.py::test_wis_hand_example_and_components
+FAILED tests_probabilistic/test_core.py::test_lower_tail_and_inclusive_endpoints
+FAILED tests_probabilistic/test_core.py::test_degenerate_wis_is_absolute_error
+FAILED tests_probabilistic/test_core.py::test_wis_matches_independent_pinball
+FAILED tests_probabilistic/test_core.py::test_invalid_quantile_levels[levels0]
+FAILED tests_probabilistic/test_core.py::test_invalid_quantile_levels[levels1]
+FAILED tests_probabilistic/test_core.py::test_invalid_quantile_levels[levels2]
+FAILED tests_probabilistic/test_core.py::test_invalid_quantile_levels[levels3]
+FAILED tests_probabilistic/test_core.py::test_invalid_quantile_levels[levels4]
+FAILED tests_probabilistic/test_core.py::test_invalid_quantile_levels[levels5]
+FAILED tests_probabilistic/test_core.py::test_invalid_forecast_arrays[q0] - N...
+FAILED tests_probabilistic/test_core.py::test_invalid_forecast_arrays[q1] - N...
+FAILED tests_probabilistic/test_core.py::test_invalid_forecast_arrays[q2] - N...
+FAILED tests_probabilistic/test_core.py::test_previous_residuals_and_test_label_invariance
+FAILED tests_probabilistic/test_core.py::test_future_residuals_rejected - Not...
+FAILED tests_probabilistic/test_core.py::test_wrong_previous_season_rejected
+FAILED tests_probabilistic/test_core.py::test_bad_panels_rejected[missing] - ...
+FAILED tests_probabilistic/test_core.py::test_bad_panels_rejected[duplicate]
+FAILED tests_probabilistic/test_core.py::test_bad_panels_rejected[truth] - No...
+FAILED tests_probabilistic/test_core.py::test_bad_panels_rejected[gap] - NotI...
+FAILED tests_probabilistic/test_core.py::test_support_projection_and_no_crossing
+21 failed in 0.50s

@@ -1,0 +1,53 @@
+COMMAND: /Users/bowenz/Desktop/All classes/biostat707-ili-demo/.venv/bin/python run_demo.py --config config/demo.json --output-dir outputs/demo_v0_1
+...........                                                              [100%]
+11 passed in 2.79s
+ 
+Epoch 01: train MSE=0.843454; validation Macro-MAE=0.745780
+Epoch 02: train MSE=0.404085; validation Macro-MAE=0.414398
+Epoch 03: train MSE=0.246680; validation Macro-MAE=0.365494
+Epoch 04: train MSE=0.205064; validation Macro-MAE=0.351278
+Epoch 05: train MSE=0.185321; validation Macro-MAE=0.339817
+Epoch 06: train MSE=0.175955; validation Macro-MAE=0.332749
+Epoch 07: train MSE=0.168882; validation Macro-MAE=0.329654
+Epoch 08: train MSE=0.163950; validation Macro-MAE=0.327426
+Epoch 09: train MSE=0.160285; validation Macro-MAE=0.326400
+Epoch 10: train MSE=0.157337; validation Macro-MAE=0.322013
+Epoch 11: train MSE=0.155355; validation Macro-MAE=0.329369
+Epoch 12: train MSE=0.152520; validation Macro-MAE=0.313207
+Epoch 13: train MSE=0.150531; validation Macro-MAE=0.311703
+Epoch 14: train MSE=0.148334; validation Macro-MAE=0.315915
+Epoch 15: train MSE=0.145937; validation Macro-MAE=0.305784
+Epoch 16: train MSE=0.145157; validation Macro-MAE=0.322367
+Epoch 17: train MSE=0.142470; validation Macro-MAE=0.313973
+Epoch 18: train MSE=0.143230; validation Macro-MAE=0.332690
+Epoch 19: train MSE=0.141365; validation Macro-MAE=0.308748
+Epoch 20: train MSE=0.139496; validation Macro-MAE=0.304456
+Epoch 21: train MSE=0.138392; validation Macro-MAE=0.302950
+Epoch 22: train MSE=0.139682; validation Macro-MAE=0.312364
+Epoch 23: train MSE=0.139357; validation Macro-MAE=0.309271
+Epoch 24: train MSE=0.136544; validation Macro-MAE=0.306465
+Epoch 25: train MSE=0.136813; validation Macro-MAE=0.309293
+Epoch 26: train MSE=0.136940; validation Macro-MAE=0.312745
+Epoch 27: train MSE=0.135854; validation Macro-MAE=0.307159
+Epoch 28: train MSE=0.134987; validation Macro-MAE=0.310629
+Epoch 29: train MSE=0.133875; validation Macro-MAE=0.308870
+Model selection frozen before Test prediction: 0d11c6b1f82da7a9bf5eb35f2b935aacd7ed60695f7266d8ff14340a9c858ed2
+Matplotlib is building the font cache; this may take a moment.
+     split   scope group       model    n  macro_mae  pooled_mae  pooled_rmse  improvement_pct  negative_predictions             units
+Validation overall   all Persistence  500   0.389026    0.389026     0.627728         0.000000                     0 percentage points
+Validation overall   all       Ridge  500   0.323385    0.323385     0.556809        16.873106                     0 percentage points
+Validation overall   all         HGB  500   0.296322    0.296322     0.513129        23.829888                     0 percentage points
+Validation overall   all        LSTM  500   0.302950    0.302950     0.526280        22.125991                     0 percentage points
+      Test overall   all Persistence 1020   0.490299    0.490299     0.850343         0.000000                     0 percentage points
+      Test overall   all       Ridge 1020   0.417382    0.417382     0.778048        14.871951                     0 percentage points
+      Test overall   all         HGB 1020   0.431142    0.431142     0.911869        12.065437                     0 percentage points
+      Test overall   all        LSTM 1020   0.435714    0.435714     0.848319        11.132942                     0 percentage points
+STATUS: COMPLETE EXIT: 0 SECONDS: 31.4052050829996
+
+POSTPROCESS: .venv/bin/python regenerate_report.py => exit 0; removed overlapping redundant time-series title only.
+CHECK: .venv/bin/python -m pytest -q => 11 passed in 3.35s, exit 0.
+CHECK: visual inspection of all four PNGs => PASS; corrected time-series figure re-inspected.
+CHECK: HTML has four embedded PNGs and no remote script/style resources => PASS.
+SETUP: python3.11 -m venv .venv => exit 0; initial sandbox pip failed due to DNS; network-enabled .venv/bin/python -m pip install numpy pandas scikit-learn torch epiweeks matplotlib pytest => exit 0.
+DOWNLOAD: curl --fail --show-error --location [source_manifest.json URL] -o data/raw/fluview_201040_201939.json => exit 0, HTTP 200.
+REVIEW: fresh-context independent checks => PASS; see review_summary.txt.

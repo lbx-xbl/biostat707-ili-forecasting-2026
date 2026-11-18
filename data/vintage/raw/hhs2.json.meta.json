@@ -1,0 +1,11 @@
+{
+  "url": "https://api.delphi.cmu.edu/epidata/fluview/?regions=hhs2&epiweeks=201040-201939&issues=201001-201952",
+  "fetched_utc": "2026-11-17T18:37:33.314563+00:00",
+  "http_status": 200,
+  "api_result": 1,
+  "rows": 21271,
+  "uncompressed_bytes": 5878792,
+  "raw_sha256": "8b8e6bdb97db2e4417aba96f941d78ea6cb5a1e1f5102746ec3de6892834b018",
+  "gzip_sha256": "0bb7f9d8967ad7d174028da6e1619c2d0e9193644c8767936ca74bdb0c279b04",
+  "file": "data/vintage/raw/hhs2.json.gz"
+}

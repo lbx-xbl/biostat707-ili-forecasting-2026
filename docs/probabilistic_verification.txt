@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "preserved_prior_files": 242,
+  "point_forecasts_unchanged": 15050,
+  "empirical_distributions_independently_recomputed": 30,
+  "quantile_values_verified": 346150,
+  "max_quantile_error": 1.7763568394002505e-15,
+  "independent_pinball_wis_rows": 15050,
+  "interval_scores_verified": 165550,
+  "group_metrics_verified": 85,
+  "coverage_rows_verified": 935,
+  "reliability_rows_verified": 1955,
+  "bootstrap_interval_rows_verified": 204,
+  "bootstrap_difference_values_verified": 1020000,
+  "outer_label_perturbation": "PASS",
+  "residual_targets_before_outer_origins": "PASS",
+  "embedded_figures": 7,
+  "point_models_retrained": 0
+}

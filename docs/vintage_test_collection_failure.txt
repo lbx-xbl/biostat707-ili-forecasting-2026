@@ -1,0 +1,13 @@
+
+==================================== ERRORS ====================================
+_________________ ERROR collecting tests_vintage/test_data.py __________________
+import file mismatch:
+imported module 'test_data' has this __file__ attribute:
+  /Users/bowenz/Desktop/All classes/biostat707-ili-demo/tests_rolling/test_data.py
+which is not the same as the test file we want to collect:
+  /Users/bowenz/Desktop/All classes/biostat707-ili-demo/tests_vintage/test_data.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+=========================== short test summary info ============================
+ERROR tests_vintage/test_data.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 2.64s

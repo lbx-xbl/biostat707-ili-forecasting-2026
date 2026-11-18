@@ -1,0 +1,70 @@
+{
+  "lookback": 12,
+  "horizon": 2,
+  "seed": 2026,
+  "threads": 4,
+  "regions": [
+    "hhs1",
+    "hhs2",
+    "hhs3",
+    "hhs4",
+    "hhs5",
+    "hhs6",
+    "hhs7",
+    "hhs8",
+    "hhs9",
+    "hhs10"
+  ],
+  "splits": {
+    "Train": [
+      201040,
+      201639
+    ],
+    "Validation": [
+      201640,
+      201739
+    ],
+    "Test": [
+      201740,
+      201939
+    ]
+  },
+  "ridge_alphas": [
+    0.1,
+    1,
+    10,
+    100,
+    1000,
+    10000,
+    100000
+  ],
+  "hgb": {
+    "loss": "squared_error",
+    "max_iter": 100,
+    "learning_rate": 0.05,
+    "max_leaf_nodes": 7,
+    "min_samples_leaf": 20,
+    "l2_regularization": 1.0,
+    "early_stopping": false,
+    "random_state": 2026
+  },
+  "lstm": {
+    "hidden_size": 16,
+    "batch_size": 32,
+    "max_epochs": 60,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "clip_norm": 1.0,
+    "patience": 8,
+    "min_delta": 1e-05
+  },
+  "test_season_starts": [
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018
+  ],
+  "final_refit": true
+}

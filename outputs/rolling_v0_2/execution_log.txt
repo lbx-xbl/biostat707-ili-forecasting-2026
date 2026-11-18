@@ -1,0 +1,30 @@
+COMMAND: /Users/bowenz/Desktop/All classes/biostat707-ili-demo/.venv/bin/python run_rolling.py --config config/rolling.json --output-dir outputs/rolling_v0_2
+......................                                                   [100%]
+22 passed in 4.91s
+ 
+START FOLD 2013-2014
+FROZEN FOLD 2013-2014 alpha 10 LSTM epoch 56 selection epochs 60 refit n 1430 test n 500
+START FOLD 2014-2015
+FROZEN FOLD 2014-2015 alpha 1 LSTM epoch 38 selection epochs 46 refit n 1950 test n 510
+START FOLD 2015-2016
+FROZEN FOLD 2015-2016 alpha 10 LSTM epoch 36 selection epochs 44 refit n 2480 test n 500
+START FOLD 2016-2017
+FROZEN FOLD 2016-2017 alpha 100 LSTM epoch 11 selection epochs 19 refit n 3000 test n 500
+START FOLD 2017-2018
+FROZEN FOLD 2017-2018 alpha 100 LSTM epoch 21 selection epochs 29 refit n 3520 test n 500
+START FOLD 2018-2019
+FROZEN FOLD 2018-2019 alpha 0.1 LSTM epoch 27 selection epochs 35 refit n 4040 test n 500
+Matplotlib is building the font cache; this may take a moment.
+   n  macro_mae  pooled_mae  pooled_rmse      bias  macro_bias  negative_predictions   scope group       model             units  improvement_pct  improvement_vs_seasonal_pct
+3010   0.402565    0.402565     0.704820  0.003878    0.003878                     0 overall   all Persistence percentage points         0.000000                    23.853471
+3010   0.528671    0.528671     0.962341 -0.242213   -0.242213                     0 overall   all    Seasonal percentage points       -31.325749                     0.000000
+3010   0.339070    0.339070     0.617545 -0.073099   -0.073099                     0 overall   all       Ridge percentage points        15.772456                    35.863648
+3010   0.319513    0.319513     0.622657 -0.070981   -0.070981                     0 overall   all         HGB percentage points        20.630729                    39.563054
+3010   0.335677    0.335677     0.630283 -0.072502   -0.072502                     0 overall   all        LSTM percentage points        16.615489                    36.505589
+STATUS COMPLETE EXIT 0 SECONDS 71.41450937505579
+
+POST-RUN: .venv/bin/python verify_rolling.py --output-dir outputs/rolling_v0_2 => PASS, exit 0.
+POST-RUN: .venv/bin/python -m pytest -q tests tests_rolling => 22 passed in 5.01s, exit 0.
+POST-RUN: report.render(outputs/rolling_v0_2) => exit 0; finalized narrative using saved results only.
+REVIEW: independent read-only scientific/code review => no Critical/Important issues; review_summary.txt.
+VISUAL: all five PNG figures inspected; axes, labels and legends readable.

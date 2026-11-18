@@ -1,0 +1,58 @@
+{
+  "input_predictions": "outputs/rolling_v0_2/predictions.csv",
+  "models": [
+    "Persistence",
+    "Seasonal",
+    "Ridge",
+    "HGB",
+    "LSTM"
+  ],
+  "regions": [
+    "hhs1",
+    "hhs2",
+    "hhs3",
+    "hhs4",
+    "hhs5",
+    "hhs6",
+    "hhs7",
+    "hhs8",
+    "hhs9",
+    "hhs10"
+  ],
+  "seasons": [
+    "2013-2014",
+    "2014-2015",
+    "2015-2016",
+    "2016-2017",
+    "2017-2018",
+    "2018-2019"
+  ],
+  "seed": 2026,
+  "threads": 4,
+  "bootstrap_replicates": 5000,
+  "primary_block_length": 8,
+  "sensitivity_block_lengths": [
+    4,
+    13
+  ],
+  "ci_quantiles": [
+    0.025,
+    0.975
+  ],
+  "ci_method": "percentile",
+  "quantile_method": "linear",
+  "difference_direction": "model minus Persistence",
+  "functional": "conditional mean",
+  "score": "squared error",
+  "isotonic_increasing": true,
+  "decomposition_scopes": [
+    "overall",
+    "season",
+    "region"
+  ],
+  "bootstrap_scopes": [
+    "overall",
+    "season",
+    "region"
+  ]
+}

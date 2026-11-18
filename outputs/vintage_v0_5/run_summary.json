@@ -1,0 +1,61 @@
+{
+  "status": "COMPLETE",
+  "checks": {
+    "prior_before": {
+      "status": "PASS",
+      "files": 339
+    },
+    "prior_after": {
+      "status": "PASS",
+      "files": 339
+    },
+    "reload_predictions": "PASS",
+    "frozen_forecasts": "PASS",
+    "full_test_suite": "70 passed in 5.33s",
+    "independent_verification": "PASS; see verification_summary.json",
+    "visual_inspection": "Six scientific figures inspected",
+    "raw_normalization_reproduced": "Exact decompressed CSV bytes match",
+    "fresh_review": "No Critical, Important or actionable Minor issues",
+    "fresh_machine_installation": "NOT TESTED"
+  },
+  "unfinished": [],
+  "completed": [
+    "2013-2014/AsOf",
+    "2013-2014/MatchedRevised",
+    "2014-2015/AsOf",
+    "2014-2015/MatchedRevised",
+    "2015-2016/AsOf",
+    "2015-2016/MatchedRevised",
+    "2016-2017/AsOf",
+    "2016-2017/MatchedRevised",
+    "2017-2018/AsOf",
+    "2017-2018/MatchedRevised",
+    "2018-2019/AsOf",
+    "2018-2019/MatchedRevised"
+  ],
+  "started_utc": "2026-11-17T18:45:25.030347+00:00",
+  "protocol_sha256": "2e1dc1dbdc5d781059a18b87bc558960aa07a2572651d363e98ee2615631e9a9",
+  "config_sha256": "87661b3e6cd744fc3540c3c0f607ae42807418f3424e89668e48ad3c7444c433",
+  "environment": {
+    "python": "3.11.5 (v3.11.5:cce6ba91b3, Aug 24 2023, 10:50:31) [Clang 13.0.0 (clang-1300.0.29.30)]",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "threads": 4,
+    "device": "cpu",
+    "versions": {
+      "numpy": "2.4.6",
+      "pandas": "3.0.6",
+      "torch": "2.14.1",
+      "scikit-learn": "1.9.1",
+      "matplotlib": "3.11.2"
+    }
+  },
+  "exit_code": 0,
+  "actual_vintage_records": 212710,
+  "test_samples_per_model_per_regime": 2540,
+  "regimes": [
+    "AsOf",
+    "MatchedRevised"
+  ],
+  "elapsed_seconds": 130.46812795801088,
+  "finished_utc": "2026-11-17T18:47:35.496469+00:00"
+}

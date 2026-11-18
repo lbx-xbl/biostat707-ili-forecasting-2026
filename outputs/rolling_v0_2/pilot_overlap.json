@@ -1,0 +1,7 @@
+{
+  "pilot_n": 1020,
+  "rolling_last_two_n": 1000,
+  "common_n": 1000,
+  "pilot_only_n": 20,
+  "rolling_only_n": 0
+}

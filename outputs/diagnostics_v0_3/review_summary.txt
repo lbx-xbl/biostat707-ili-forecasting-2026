@@ -1,0 +1,6 @@
+Independent read-only review: no Critical or Important issues found.
+Recomputed 408 intervals and 2,040,000 replicate differences by direct indexing; independently checked 85 decompositions and 45,150 fitted values using weighted PAV (maximum error 3.55e-15).
+Confirmed paired seasonal draws, deterministic seeds, pooled RMSE, preservation of 196 prior files and unchanged forecasts.
+Fresh diagnostics tests: 16 passed; final complete suite: 38 passed in 5.78 seconds.
+Seven figures visually inspected; decomposition labels separated for readability. Report adds actual findings and block-length sensitivity interpretation.
+Limitations reviewed: conditional inference, nonstationarity, edge weighting, no training uncertainty, same-sample diagnostic optimism.

@@ -1,0 +1,112 @@
+[
+  {
+    "url": "https://api.delphi.cmu.edu/epidata/fluview/?regions=hhs1&epiweeks=201040-201939&issues=201001-201952",
+    "fetched_utc": "2026-11-17T18:37:33.541809+00:00",
+    "http_status": 200,
+    "api_result": 1,
+    "rows": 21271,
+    "uncompressed_bytes": 5783202,
+    "raw_sha256": "b93259fe385ba4c669d0ec4de08094e4c4a34e9b03130a8044c5b4a5f2888fd0",
+    "gzip_sha256": "1ce203a0d6fcf04dcb1add17ed1186343a03655d218d31f22cde1d6698adaa5d",
+    "file": "data/vintage/raw/hhs1.json.gz"
+  },
+  {
+    "url": "https://api.delphi.cmu.edu/epidata/fluview/?regions=hhs2&epiweeks=201040-201939&issues=201001-201952",
+    "fetched_utc": "2026-11-17T18:37:33.314563+00:00",
+    "http_status": 200,
+    "api_result": 1,
+    "rows": 21271,
+    "uncompressed_bytes": 5878792,
+    "raw_sha256": "8b8e6bdb97db2e4417aba96f941d78ea6cb5a1e1f5102746ec3de6892834b018",
+    "gzip_sha256": "0bb7f9d8967ad7d174028da6e1619c2d0e9193644c8767936ca74bdb0c279b04",
+    "file": "data/vintage/raw/hhs2.json.gz"
+  },
+  {
+    "url": "https://api.delphi.cmu.edu/epidata/fluview/?regions=hhs3&epiweeks=201040-201939&issues=201001-201952",
+    "fetched_utc": "2026-11-17T18:37:35.751721+00:00",
+    "http_status": 200,
+    "api_result": 1,
+    "rows": 21271,
+    "uncompressed_bytes": 5875101,
+    "raw_sha256": "70c50a80f329bf3e18d17544e2e2fb04e8691705bf56eaa09104e88f9f81bfa1",
+    "gzip_sha256": "f4a8943b47a08d552633a6a68c7543e1b61ac1e222838760d20f6b9ee06de002",
+    "file": "data/vintage/raw/hhs3.json.gz"
+  },
+  {
+    "url": "https://api.delphi.cmu.edu/epidata/fluview/?regions=hhs4&epiweeks=201040-201939&issues=201001-201952",
+    "fetched_utc": "2026-11-17T18:37:34.584390+00:00",
+    "http_status": 200,
+    "api_result": 1,
+    "rows": 21271,
+    "uncompressed_bytes": 5877808,
+    "raw_sha256": "82ae694d0e94a5d5e4a7875c54a93d49dc4c0a9115eb93f9c579735a30c54b1e",
+    "gzip_sha256": "8678ef2a781430708eca30e9018722bc06755a989d3e84a1a1e683ca6b6ee46f",
+    "file": "data/vintage/raw/hhs4.json.gz"
+  },
+  {
+    "url": "https://api.delphi.cmu.edu/epidata/fluview/?regions=hhs5&epiweeks=201040-201939&issues=201001-201952",
+    "fetched_utc": "2026-11-17T18:37:35.664880+00:00",
+    "http_status": 200,
+    "api_result": 1,
+    "rows": 21271,
+    "uncompressed_bytes": 5845961,
+    "raw_sha256": "661fe5e1e3afb3381eff7185c5ce8e901315beb5bba8a672a75598a7def46928",
+    "gzip_sha256": "80ed29d7f3252c1cf709291c6a3d9fb63fb2d92e3396acd4743e932911737229",
+    "file": "data/vintage/raw/hhs5.json.gz"
+  },
+  {
+    "url": "https://api.delphi.cmu.edu/epidata/fluview/?regions=hhs6&epiweeks=201040-201939&issues=201001-201952",
+    "fetched_utc": "2026-11-17T18:37:36.564913+00:00",
+    "http_status": 200,
+    "api_result": 1,
+    "rows": 21271,
+    "uncompressed_bytes": 5860232,
+    "raw_sha256": "f97fcd4f6c0d4abaadee1e1d8e6968109291fb3fa1053281ac41a1da5bce67c4",
+    "gzip_sha256": "b3e90212d30721852711bde68b408cfb3b51f26ab8791574959411d78ad06eb4",
+    "file": "data/vintage/raw/hhs6.json.gz"
+  },
+  {
+    "url": "https://api.delphi.cmu.edu/epidata/fluview/?regions=hhs7&epiweeks=201040-201939&issues=201001-201952",
+    "fetched_utc": "2026-11-17T18:37:36.882724+00:00",
+    "http_status": 200,
+    "api_result": 1,
+    "rows": 21271,
+    "uncompressed_bytes": 5724764,
+    "raw_sha256": "15c968c17aaa97d627a45aa8fe41aa6995d67cbc8992c3ca261e460d4494c549",
+    "gzip_sha256": "d0d075364779dc7d4c83b76c6f1e3d69f2c295d9087140a45e672bcb01fbdaf6",
+    "file": "data/vintage/raw/hhs7.json.gz"
+  },
+  {
+    "url": "https://api.delphi.cmu.edu/epidata/fluview/?regions=hhs8&epiweeks=201040-201939&issues=201001-201952",
+    "fetched_utc": "2026-11-17T18:37:37.649832+00:00",
+    "http_status": 200,
+    "api_result": 1,
+    "rows": 21271,
+    "uncompressed_bytes": 5788856,
+    "raw_sha256": "b671ea76fe571c3a048b996c0eedad6b4899bd446dd4dc01f42d7ccce490dcbf",
+    "gzip_sha256": "e1db707a36a4f70d0f824ef6eb9b5bdf483c32cb11074b4ee5a64b54520c3c52",
+    "file": "data/vintage/raw/hhs8.json.gz"
+  },
+  {
+    "url": "https://api.delphi.cmu.edu/epidata/fluview/?regions=hhs9&epiweeks=201040-201939&issues=201001-201952",
+    "fetched_utc": "2026-11-17T18:37:37.766923+00:00",
+    "http_status": 200,
+    "api_result": 1,
+    "rows": 21271,
+    "uncompressed_bytes": 5833352,
+    "raw_sha256": "aa0ec4257cfb7878a6efad3af187af477ec4ecd7fd4c5e9860402996d56a6860",
+    "gzip_sha256": "34c09fd03a349f5e8a912acf560a0b72e03d44579acd683291edfe1c4628719f",
+    "file": "data/vintage/raw/hhs9.json.gz"
+  },
+  {
+    "url": "https://api.delphi.cmu.edu/epidata/fluview/?regions=hhs10&epiweeks=201040-201939&issues=201001-201952",
+    "fetched_utc": "2026-11-17T18:37:39.230593+00:00",
+    "http_status": 200,
+    "api_result": 1,
+    "rows": 21271,
+    "uncompressed_bytes": 5738584,
+    "raw_sha256": "a037c23fd48c28025e40c660d704a505ada32f09e2761b5fbba1fbdb6662121a",
+    "gzip_sha256": "acf187b3660b38e37e20953ec5b046780ba36eecc9b03841f7b79808f51c8f4d",
+    "file": "data/vintage/raw/hhs10.json.gz"
+  }
+]

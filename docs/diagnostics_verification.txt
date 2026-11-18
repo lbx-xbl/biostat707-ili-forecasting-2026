@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "prior_files_unchanged": 196,
+  "original_forecast_rows": 15050,
+  "interval_rows_recomputed": 408,
+  "replicate_difference_values_recomputed": 2040000,
+  "decompositions_independently_checked": 85,
+  "diagnostic_points_checked": 45150,
+  "maximum_independent_pav_error": 3.552713678800501e-15,
+  "paired_seasonal_blocks_and_deterministic_seeds": "PASS",
+  "original_point_metrics_match_v0_2": "PASS",
+  "protocol_input_hashes": "PASS",
+  "embedded_figures": 7,
+  "forecast_models_retrained": 0
+}

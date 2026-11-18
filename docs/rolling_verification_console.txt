@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "raw_rows": 4690,
+  "windows_checked_against_raw": 4560,
+  "outer_samples_per_model": 3010,
+  "prediction_rows": 15050,
+  "pilot_files_unchanged": 50,
+  "metrics_rows_independently_recomputed": 385,
+  "reload_max_errors": {
+    "2013-2014": {
+      "Ridge": 4.440892098500626e-16,
+      "HGB": 4.440892098500626e-16,
+      "LSTM": 4.440892098500626e-16
+    },
+    "2014-2015": {
+      "Ridge": 1.7763568394002505e-15,
+      "HGB": 4.440892098500626e-16,
+      "LSTM": 8.881784197001252e-16
+    },
+    "2015-2016": {
+      "Ridge": 4.440892098500626e-16,
+      "HGB": 4.440892098500626e-16,
+      "LSTM": 4.440892098500626e-16
+    },
+    "2016-2017": {
+      "Ridge": 4.440892098500626e-16,
+      "HGB": 4.440892098500626e-16,
+      "LSTM": 4.440892098500626e-16
+    },
+    "2017-2018": {
+      "Ridge": 1.7763568394002505e-15,
+      "HGB": 8.881784197001252e-16,
+      "LSTM": 4.440892098500626e-16
+    },
+    "2018-2019": {
+      "Ridge": 1.7763568394002505e-15,
+      "HGB": 4.440892098500626e-16,
+      "LSTM": 4.440892098500626e-16
+    }
+  },
+  "seasonal_week53_fallback_predictions": {
+    "2013-2014": 0,
+    "2014-2015": 10,
+    "2015-2016": 0,
+    "2016-2017": 0,
+    "2017-2018": 0,
+    "2018-2019": 0
+  },
+  "fixed_refit_epochs": "PASS",
+  "selection_and_refit_ranges_and_scalers": "PASS",
+  "fixed_feature_label_perturbation": "PASS",
+  "embedded_report_figures": 5
+}

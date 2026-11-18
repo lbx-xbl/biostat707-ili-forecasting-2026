@@ -1,0 +1,13 @@
+{
+  "frozen_utc": "2026-11-17T16:54:57.986484+00:00",
+  "sha256": {
+    "folds/2013-2014/quantiles_before_evaluation.csv": "31347b0eb28936e44174210e9adfb64238a8b831db183c098d5e924bdc274c1f",
+    "folds/2014-2015/quantiles_before_evaluation.csv": "0c4b01fe6f0b736f2877f8a81220a2429a72443a2bae6a11e9a9109a2fc33ace",
+    "folds/2015-2016/quantiles_before_evaluation.csv": "ef38030ec76e0b747e5854a7e2e218a65c7bf0f9eaf0961b87ce139c372673b9",
+    "folds/2016-2017/quantiles_before_evaluation.csv": "b3a3867f3dd26d1e2ba797bb8b52642d88e4deb962005ced42ec69a1ebe7d0ed",
+    "folds/2017-2018/quantiles_before_evaluation.csv": "db52f8c8318dc0107693789a31b45550e9d362382596c0fc000f30c82ed3ab43",
+    "folds/2018-2019/quantiles_before_evaluation.csv": "09e7fe4a91caac3329a340bf4b7fda3702a9cbd9293fb937007b6a44a250c1e8",
+    "quantiles_before_evaluation.csv": "ff8e7ec05dda51f222073c7f808523ce2d2080399ed700346caefae3495b4e25"
+  },
+  "outcomes_joined_after_freeze": true
+}

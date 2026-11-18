@@ -1,0 +1,117 @@
+{
+  "status": "COMPLETE",
+  "stage": "phase_one_complete",
+  "started_utc": "2026-11-17T15:25:42.802768+00:00",
+  "checks": {
+    "pilot_before": {
+      "files_checked": 50,
+      "changed": [],
+      "status": "PASS"
+    },
+    "pytest": {
+      "exit_code": 0,
+      "output": "......................                                                   [100%]\n22 passed in 4.91s"
+    },
+    "metrics_recomputed": "PASS",
+    "identical_keys_metadata": "PASS",
+    "reload_max_abs_errors": {
+      "2013-2014": {
+        "Ridge": 4.440892098500626e-16,
+        "HGB": 4.440892098500626e-16,
+        "LSTM": 4.440892098500626e-16
+      },
+      "2014-2015": {
+        "Ridge": 1.7763568394002505e-15,
+        "HGB": 4.440892098500626e-16,
+        "LSTM": 8.881784197001252e-16
+      },
+      "2015-2016": {
+        "Ridge": 4.440892098500626e-16,
+        "HGB": 4.440892098500626e-16,
+        "LSTM": 4.440892098500626e-16
+      },
+      "2016-2017": {
+        "Ridge": 4.440892098500626e-16,
+        "HGB": 4.440892098500626e-16,
+        "LSTM": 4.440892098500626e-16
+      },
+      "2017-2018": {
+        "Ridge": 1.7763568394002505e-15,
+        "HGB": 8.881784197001252e-16,
+        "LSTM": 4.440892098500626e-16
+      },
+      "2018-2019": {
+        "Ridge": 1.7763568394002505e-15,
+        "HGB": 4.440892098500626e-16,
+        "LSTM": 4.440892098500626e-16
+      }
+    },
+    "frozen_protocol_and_selection": "PASS",
+    "pilot_after": {
+      "files_checked": 50,
+      "changed": [],
+      "status": "PASS"
+    },
+    "independent_artifact_verification": "PASS",
+    "fresh_context_review": "PASS; no Critical/Important findings",
+    "visual_review": "PASS; all five PNGs inspected",
+    "final_test_suite": "22 passed in 5.01s; exit 0",
+    "final_report_render": "exit 0; narrative derived from saved metrics, no retraining"
+  },
+  "folds_completed": [
+    "2013-2014",
+    "2014-2015",
+    "2015-2016",
+    "2016-2017",
+    "2017-2018",
+    "2018-2019"
+  ],
+  "unfinished": [],
+  "protocol_sha256": "904cd8e5aa613af02c5930f02f6f6ca2fd5de99a4f8a86f39b84cad28a28ee3d",
+  "config_sha256": "743f499f51a05038f15da0ee1a36ac00d492949bab1105f620c0360e1513c7d2",
+  "environment": {
+    "python": "3.11.5 (v3.11.5:cce6ba91b3, Aug 24 2023, 10:50:31) [Clang 13.0.0 (clang-1300.0.29.30)]",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "device": "cpu",
+    "threads": 4,
+    "versions": {
+      "numpy": "2.4.6",
+      "pandas": "3.0.6",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1",
+      "epiweeks": "2.4.0",
+      "matplotlib": "3.11.2",
+      "pytest": "9.1.1"
+    }
+  },
+  "threadpools": [
+    {
+      "user_api": "openmp",
+      "internal_api": "openmp",
+      "num_threads": 4,
+      "prefix": "libomp",
+      "filepath": "/Users/bowenz/Desktop/All classes/biostat707-ili-demo/.venv/lib/python3.11/site-packages/torch/lib/libomp.dylib",
+      "version": null
+    },
+    {
+      "user_api": "openmp",
+      "internal_api": "openmp",
+      "num_threads": 4,
+      "prefix": "libomp",
+      "filepath": "/Users/bowenz/Desktop/All classes/biostat707-ili-demo/.venv/lib/python3.11/site-packages/sklearn/.dylibs/libomp.dylib",
+      "version": null
+    }
+  ],
+  "test_n_per_model": 3010,
+  "prediction_rows": 15050,
+  "exit_code": 0,
+  "later_stages_not_run": [
+    "paired block bootstrap",
+    "continuous calibration/decomposition",
+    "quantile forecasts/WIS",
+    "vintage reconstruction"
+  ],
+  "elapsed_seconds": 71.41450937505579,
+  "finished_utc": "2026-11-17T15:26:54.217267+00:00",
+  "delivery_prepared_utc": "2026-11-17T15:29:52.577479+00:00"
+}

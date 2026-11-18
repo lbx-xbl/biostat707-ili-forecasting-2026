@@ -1,0 +1,58 @@
+{
+  "status": "COMPLETE",
+  "started_utc": "2026-11-17T16:54:55.072924+00:00",
+  "checks": {
+    "preservation_before": {
+      "status": "PASS",
+      "files_checked": 242
+    },
+    "pytest": {
+      "exit_code": 0,
+      "output": ".......................                                                  [100%]\n23 passed in 0.36s"
+    },
+    "preservation_after": {
+      "status": "PASS",
+      "files_checked": 242
+    },
+    "identical_point_predictions": "PASS",
+    "chronological_calibration": "PASS",
+    "monotone_bounded_quantiles": "PASS",
+    "forecasts_frozen_before_evaluation": "PASS",
+    "full_test_suite": "61 passed in 5.75s",
+    "independent_verification": "PASS; see verification_summary.json",
+    "fresh_review": "No Critical or Important issues; one illustration-label clarification",
+    "visual_inspection": "Seven scientific figures inspected",
+    "fresh_machine_installation": "NOT TESTED"
+  },
+  "unfinished": [],
+  "point_models_retrained": 0,
+  "new_tuning_candidates": 0,
+  "empirical_residual_distributions_fit": 30,
+  "protocol_sha256": "d012012e37289ec9693d7dd79eb45afdc9a7da3460c4c5994d4783029601816c",
+  "config_sha256": "d837ab85cf43c61c663d6a5743c981d073e3c4c42bae774f3df45f7a8e0cd41f",
+  "environment": {
+    "python": "3.11.5 (v3.11.5:cce6ba91b3, Aug 24 2023, 10:50:31) [Clang 13.0.0 (clang-1300.0.29.30)]",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "threads": 4,
+    "versions": {
+      "numpy": "2.4.6",
+      "pandas": "3.0.6",
+      "matplotlib": "3.11.2",
+      "scikit-learn": "1.9.1",
+      "pytest": "9.1.1"
+    }
+  },
+  "exit_code": 0,
+  "test_samples_per_model": 3010,
+  "quantile_rows": 346150,
+  "scored_forecasts": 15050,
+  "residual_rows": 15050,
+  "clipped_quantiles": 17085,
+  "bootstrap_interval_rows": 204,
+  "later_stages_not_run": [
+    "quantile gradient boosting",
+    "vintage reconstruction"
+  ],
+  "elapsed_seconds": 20.94213141599903,
+  "finished_utc": "2026-11-17T16:55:16.014960+00:00"
+}

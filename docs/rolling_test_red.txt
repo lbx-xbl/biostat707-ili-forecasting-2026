@@ -1,0 +1,83 @@
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+____________________ test_first_last_fold_and_refit_bridge _____________________
+
+panel =      release_date region   issue  ...       ili   week_end     season
+0      2017-10-24   hhs1  201740  ...  0.495312 ...7 2019-09-21  2018-2019
+4689   2020-10-02  hhs10  202039  ...  0.760818 2019-09-28  2018-2019
+
+[4690 rows x 18 columns]
+
+    def test_first_last_fold_and_refit_bridge(panel):
+>       w=all_windows(panel,CFG)
+          ^^^^^^^^^^^^^^^^^^^^^^
+
+tests_rolling/test_data.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (     release_date region   issue  ...       ili   week_end     season
+0      2017-10-24   hhs1  201740  ...  0.495312...60818 2019-09-28  2018-2019
+
+[4690 rows x 18 columns], {'lookback': 12, 'horizon': 2, 'seed': 2026, 'threads': 4, ...})
+
+>   def all_windows(*args): raise NotImplementedError
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+rolling/data.py:1: NotImplementedError
+___________________ test_scaler_and_seasonal_no_future_leak ____________________
+
+panel =      release_date region   issue  ...       ili   week_end     season
+0      2017-10-24   hhs1  201740  ...  0.495312 ...7 2019-09-21  2018-2019
+4689   2020-10-02  hhs10  202039  ...  0.760818 2019-09-28  2018-2019
+
+[4690 rows x 18 columns]
+
+    def test_scaler_and_seasonal_no_future_leak(panel):
+>       old=scaler(panel,201239)
+            ^^^^^^^^^^^^^^^^^^^^
+
+tests_rolling/test_data.py:34: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (     release_date region   issue  ...       ili   week_end     season
+0      2017-10-24   hhs1  201740  ...  0.495312...-21  2018-2019
+4689   2020-10-02  hhs10  202039  ...  0.760818 2019-09-28  2018-2019
+
+[4690 rows x 18 columns], 201239)
+
+>   def scaler(*args): raise NotImplementedError
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+rolling/data.py:3: NotImplementedError
+_______________ test_seasonal_matches_region_week_not_row_order ________________
+
+panel =      release_date region   issue  ...       ili   week_end     season
+0      2017-10-24   hhs1  201740  ...  0.495312 ...7 2019-09-21  2018-2019
+4689   2020-10-02  hhs10  202039  ...  0.760818 2019-09-28  2018-2019
+
+[4690 rows x 18 columns]
+
+    def test_seasonal_matches_region_week_not_row_order(panel):
+>       table=seasonal_table(panel,2014,CFG['regions'])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_rolling/test_data.py:51: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (     release_date region   issue  ...       ili   week_end     season
+0      2017-10-24   hhs1  201740  ...  0.495312... 0.760818 2019-09-28  2018-2019
+
+[4690 rows x 18 columns], 2014, ['hhs1', 'hhs2', 'hhs3', 'hhs4', 'hhs5', 'hhs6', ...])
+
+>   def seasonal_table(*args): raise NotImplementedError
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+rolling/data.py:4: NotImplementedError
+=========================== short test summary info ============================
+FAILED tests_rolling/test_data.py::test_first_last_fold_and_refit_bridge - No...
+FAILED tests_rolling/test_data.py::test_scaler_and_seasonal_no_future_leak - ...
+FAILED tests_rolling/test_data.py::test_seasonal_matches_region_week_not_row_order
+3 failed in 8.26s

@@ -1,0 +1,61 @@
+{
+  "seed": 2026,
+  "ridge_candidates": [
+    {
+      "alpha": 0.1,
+      "mae": 0.32697995327943596
+    },
+    {
+      "alpha": 1,
+      "mae": 0.32685848215106594
+    },
+    {
+      "alpha": 10,
+      "mae": 0.32577594031384827
+    },
+    {
+      "alpha": 100,
+      "mae": 0.3233854390098653
+    },
+    {
+      "alpha": 1000,
+      "mae": 0.3841351030585115
+    },
+    {
+      "alpha": 10000,
+      "mae": 0.6338225605726772
+    },
+    {
+      "alpha": 100000,
+      "mae": 0.9318498363968475
+    }
+  ],
+  "ridge_alpha": 100,
+  "ridge_grid_boundary": false,
+  "lstm_best_epoch": 21,
+  "lstm_selection_total_epochs": 29,
+  "selection_transform": {
+    "mu": 1.579996225910543,
+    "sigma": 1.2386064757937545,
+    "n_unique_observations": 3130,
+    "fit_split": "Train",
+    "ddof": 0,
+    "fit_first_week": 201040,
+    "fit_last_week": 201639
+  },
+  "selection_uses": "Train weights; Validation MAE only",
+  "fold": "2017-2018",
+  "validation_first_week": 201640,
+  "validation_last_week": 201739,
+  "refit_transform": {
+    "mu": 1.6033897590684931,
+    "sigma": 1.2739005478708454,
+    "n_unique_observations": 3650,
+    "fit_split": "Train",
+    "ddof": 0,
+    "fit_first_week": 201040,
+    "fit_last_week": 201739
+  },
+  "selected_before_outer_evaluation": true,
+  "configuration_sha256": "743f499f51a05038f15da0ee1a36ac00d492949bab1105f620c0360e1513c7d2"
+}

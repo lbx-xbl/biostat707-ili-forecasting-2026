@@ -1,0 +1,50 @@
+{
+  "status": "COMPLETE",
+  "started_utc": "2026-11-17T15:48:23.554450+00:00",
+  "checks": {
+    "tests": {
+      "exit_code": 0,
+      "output": "................                                                         [100%]\n16 passed in 1.35s"
+    },
+    "complete_matched_week_region_model_panel": "PASS",
+    "decomposition_identities": "PASS",
+    "final_test_suite": "38 passed in 5.78s",
+    "independent_review": "No Critical or Important issues",
+    "visual_review": "Seven figures inspected; decomposition labels adjusted",
+    "independent_recomputation": "PASS; see verification_summary.json"
+  },
+  "unfinished": [],
+  "config_sha256": "f4da8e7c37b14990b0acf38e470a98fea4a2ed56ffc2cc067337f7dddb4457a6",
+  "protocol_sha256": "eb789b06ba30e2f978b3dda1fc445c269bcd6d04e7c50e5724d56691e01994f4",
+  "preservation_before": {
+    "status": "PASS",
+    "files_checked": 196,
+    "changed": []
+  },
+  "environment": {
+    "python": "3.11.5 (v3.11.5:cce6ba91b3, Aug 24 2023, 10:50:31) [Clang 13.0.0 (clang-1300.0.29.30)]",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "threads": 4,
+    "versions": {
+      "numpy": "2.4.6",
+      "pandas": "3.0.6",
+      "scikit-learn": "1.9.1",
+      "matplotlib": "3.11.2",
+      "pytest": "9.1.1"
+    }
+  },
+  "input_predictions_sha256": "2d741a34c25b8e015c055bbf42bc6ebd546fe9a7bfb33d86257cd60635ec27e2",
+  "preservation_after": {
+    "status": "PASS",
+    "files_checked": 196,
+    "changed": []
+  },
+  "interval_rows": 408,
+  "decomposition_rows": 85,
+  "diagnostic_point_rows": 45150,
+  "forecast_models_trained": 0,
+  "saved_forecasts_changed": 0,
+  "exit_code": 0,
+  "elapsed_seconds": 5.332144791958854,
+  "finished_utc": "2026-11-17T15:48:28.886548+00:00"
+}

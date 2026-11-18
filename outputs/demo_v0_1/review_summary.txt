@@ -1,0 +1,5 @@
+Fresh-context read-only review (Codex subagent), 2026-10-20
+No Critical or Important findings.
+Independently verified without retraining: raw API status/hash/4690 rows; all 4520 histories and targets against actual observations; CDC calendar and week53; origin/target split membership; train-only scaler and weights; validation-only selection; identical evaluation keys/metadata; metrics reconstruction; reload <=1e-6; best validation epoch 21 of 29.
+Minor stale progress-ledger wording was corrected before packaging.
+Parent visual review: inspected all four PNGs. Fixed time-series title/legend overlap by removing redundant title and regenerated figures/report only. Re-inspected corrected image: readable legend, ten panels, target-date axis and units.

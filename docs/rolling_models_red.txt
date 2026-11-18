@@ -1,0 +1,214 @@
+FFFFFFFF                                                                 [100%]
+=================================== FAILURES ===================================
+____________ test_alpha_tie_prefers_larger_and_grid_can_exceed_100 _____________
+
+    def test_alpha_tie_prefers_larger_and_grid_can_exceed_100():
+>       assert choose_alpha([{'alpha':100,'mae':1.},{'alpha':1000,'mae':0.8},{'alpha':10000,'mae':0.8}])==10000
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_rolling/test_models_metrics.py:9: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = ([{'alpha': 100, 'mae': 1.0}, {'alpha': 1000, 'mae': 0.8}, {'alpha': 10000, 'mae': 0.8}],)
+
+>   def choose_alpha(*args): raise NotImplementedError
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+rolling/models.py:1: NotImplementedError
+____________________ test_refit_fixed_epoch_without_labels _____________________
+
+    def test_refit_fixed_epoch_without_labels():
+        x=np.zeros((35,24)); y=np.linspace(-1,1,35)
+        cfg={'seed':2026,'lstm':{'learning_rate':.001,'weight_decay':.0001,'batch_size':32,'clip_norm':1.,'patience':8,'min_delta':1e-5}}
+>       m,curve,best=fit_lstm(x,y,cfg,epochs=2)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_rolling/test_models_metrics.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (array([[0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0.],
+    ... ]), {'seed': 2026, 'lstm': {'learning_rate': 0.001, 'weight_decay': 0.0001, 'batch_size': 32, 'clip_norm': 1.0, ...}})
+kwargs = {'epochs': 2}
+
+>   def fit_lstm(*args,**kwargs): raise NotImplementedError
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+rolling/models.py:2: NotImplementedError
+_______________________ test_signed_bias_macro_and_rmse ________________________
+
+    def test_signed_bias_macro_and_rmse():
+>       d=example(); s=score(d[d.model=='Ridge'])
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_rolling/test_models_metrics.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (   model sample_id region  ...  target_season  y_true y_pred
+6  Ridge         0   hhs1  ...      2013-2014     0.0   ... ...      2013-2014     0.0    3.0
+8  Ridge         2   hhs2  ...      2013-2014     0.0   -6.0
+
+[3 rows x 8 columns],)
+
+>   def score(*args): raise NotImplementedError
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+rolling/evaluate.py:1: NotImplementedError
+______________________ test_prediction_integrity[missing] ______________________
+
+kind = 'missing'
+
+    @pytest.mark.parametrize('kind',['missing','duplicate','metadata','truth','infinite'])
+    def test_prediction_integrity(kind):
+        d=example()
+        if kind=='missing': d=d.iloc[1:]
+        if kind=='duplicate': d=pd.concat([d,d.iloc[[0]]])
+        if kind=='metadata': d.loc[0,'region']='hhs9'
+        if kind=='truth': d.loc[0,'y_true']=999
+        if kind=='infinite': d.loc[0,'y_pred']=np.inf
+>       with pytest.raises(ValueError): validate(d,example()[example().model=='Persistence'])
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_rolling/test_models_metrics.py:45: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (          model sample_id region  ...  target_season  y_true y_pred
+1   Persistence         1   hhs1  ...      2013-2...     2013-2014     0.0    3.0
+2  Persistence         2   hhs2  ...      2013-2014     0.0   -6.0
+
+[3 rows x 8 columns])
+
+>   def validate(*args): raise NotImplementedError
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+rolling/evaluate.py:2: NotImplementedError
+_____________________ test_prediction_integrity[duplicate] _____________________
+
+kind = 'duplicate'
+
+    @pytest.mark.parametrize('kind',['missing','duplicate','metadata','truth','infinite'])
+    def test_prediction_integrity(kind):
+        d=example()
+        if kind=='missing': d=d.iloc[1:]
+        if kind=='duplicate': d=pd.concat([d,d.iloc[[0]]])
+        if kind=='metadata': d.loc[0,'region']='hhs9'
+        if kind=='truth': d.loc[0,'y_true']=999
+        if kind=='infinite': d.loc[0,'y_pred']=np.inf
+>       with pytest.raises(ValueError): validate(d,example()[example().model=='Persistence'])
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_rolling/test_models_metrics.py:45: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (          model sample_id region  ...  target_season  y_true y_pred
+0   Persistence         0   hhs1  ...      2013-2...     2013-2014     0.0    3.0
+2  Persistence         2   hhs2  ...      2013-2014     0.0   -6.0
+
+[3 rows x 8 columns])
+
+>   def validate(*args): raise NotImplementedError
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+rolling/evaluate.py:2: NotImplementedError
+_____________________ test_prediction_integrity[metadata] ______________________
+
+kind = 'metadata'
+
+    @pytest.mark.parametrize('kind',['missing','duplicate','metadata','truth','infinite'])
+    def test_prediction_integrity(kind):
+        d=example()
+        if kind=='missing': d=d.iloc[1:]
+        if kind=='duplicate': d=pd.concat([d,d.iloc[[0]]])
+        if kind=='metadata': d.loc[0,'region']='hhs9'
+        if kind=='truth': d.loc[0,'y_true']=999
+        if kind=='infinite': d.loc[0,'y_pred']=np.inf
+>       with pytest.raises(ValueError): validate(d,example()[example().model=='Persistence'])
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_rolling/test_models_metrics.py:45: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (          model sample_id region  ...  target_season  y_true y_pred
+0   Persistence         0   hhs9  ...      2013-2...     2013-2014     0.0    3.0
+2  Persistence         2   hhs2  ...      2013-2014     0.0   -6.0
+
+[3 rows x 8 columns])
+
+>   def validate(*args): raise NotImplementedError
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+rolling/evaluate.py:2: NotImplementedError
+_______________________ test_prediction_integrity[truth] _______________________
+
+kind = 'truth'
+
+    @pytest.mark.parametrize('kind',['missing','duplicate','metadata','truth','infinite'])
+    def test_prediction_integrity(kind):
+        d=example()
+        if kind=='missing': d=d.iloc[1:]
+        if kind=='duplicate': d=pd.concat([d,d.iloc[[0]]])
+        if kind=='metadata': d.loc[0,'region']='hhs9'
+        if kind=='truth': d.loc[0,'y_true']=999
+        if kind=='infinite': d.loc[0,'y_pred']=np.inf
+>       with pytest.raises(ValueError): validate(d,example()[example().model=='Persistence'])
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_rolling/test_models_metrics.py:45: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (          model sample_id region  ...  target_season  y_true y_pred
+0   Persistence         0   hhs1  ...      2013-2...     2013-2014     0.0    3.0
+2  Persistence         2   hhs2  ...      2013-2014     0.0   -6.0
+
+[3 rows x 8 columns])
+
+>   def validate(*args): raise NotImplementedError
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+rolling/evaluate.py:2: NotImplementedError
+_____________________ test_prediction_integrity[infinite] ______________________
+
+kind = 'infinite'
+
+    @pytest.mark.parametrize('kind',['missing','duplicate','metadata','truth','infinite'])
+    def test_prediction_integrity(kind):
+        d=example()
+        if kind=='missing': d=d.iloc[1:]
+        if kind=='duplicate': d=pd.concat([d,d.iloc[[0]]])
+        if kind=='metadata': d.loc[0,'region']='hhs9'
+        if kind=='truth': d.loc[0,'y_true']=999
+        if kind=='infinite': d.loc[0,'y_pred']=np.inf
+>       with pytest.raises(ValueError): validate(d,example()[example().model=='Persistence'])
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_rolling/test_models_metrics.py:45: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (          model sample_id region  ...  target_season  y_true y_pred
+0   Persistence         0   hhs1  ...      2013-2...     2013-2014     0.0    3.0
+2  Persistence         2   hhs2  ...      2013-2014     0.0   -6.0
+
+[3 rows x 8 columns])
+
+>   def validate(*args): raise NotImplementedError
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+rolling/evaluate.py:2: NotImplementedError
+=========================== short test summary info ============================
+FAILED tests_rolling/test_models_metrics.py::test_alpha_tie_prefers_larger_and_grid_can_exceed_100
+FAILED tests_rolling/test_models_metrics.py::test_refit_fixed_epoch_without_labels
+FAILED tests_rolling/test_models_metrics.py::test_signed_bias_macro_and_rmse
+FAILED tests_rolling/test_models_metrics.py::test_prediction_integrity[missing]
+FAILED tests_rolling/test_models_metrics.py::test_prediction_integrity[duplicate]
+FAILED tests_rolling/test_models_metrics.py::test_prediction_integrity[metadata]
+FAILED tests_rolling/test_models_metrics.py::test_prediction_integrity[truth]
+FAILED tests_rolling/test_models_metrics.py::test_prediction_integrity[infinite]
+8 failed in 0.48s

@@ -1,0 +1,145 @@
+FFFFFF                                                                   [100%]
+=================================== FAILURES ===================================
+_________________ test_release_before_selection_and_issue_tie __________________
+
+    def test_release_before_selection_and_issue_tie():
+        d=pd.DataFrame([dict(region='hhs1',epiweek=201440,issue=201440,release_date='2014-10-10',wili=1),dict(region='hhs1',epiweek=201440,issue=201441,release_date='2014-10-20',wili=9),dict(region='hhs1',epiweek=201440,issue=201442,release_date='2014-10-10',wili=2)])
+>       assert asof(d,'2014-10-10').wili.iloc[0]==2
+               ^^^^^^^^^^^^^^^^^^^^
+
+tests_vintage/test_data.py:9: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records =   region  epiweek   issue release_date  wili
+0   hhs1   201440  201440   2014-10-10     1
+1   hhs1   201440  201441   2014-10-20     9
+2   hhs1   201440  201442   2014-10-10     2
+cutoff = '2014-10-10'
+
+>   def asof(records,cutoff):raise NotImplementedError
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+vintage/data.py:1: NotImplementedError
+____________________ test_week53_window_and_no_final_values ____________________
+
+    def test_week53_window_and_no_final_values():
+>       t,p=fixture();f,drop=windows(t,p,'2015-01-10');assert not drop and len(f)==1
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_vintage/test_data.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+template =   sample_id region  origin_week  ... target_season  y_true lag_0
+0         x   hhs1       201453  ...     2014-2015     999   999
+
+[1 rows x 9 columns]
+panel =    region  epiweek    week_end   issue release_date  wili
+0    hhs1   201442  2014-10-18  201442   2015-01-10   0.0
+1 ...1.0
+12   hhs1   201501  2015-01-10  201501   2015-01-10  12.0
+13   hhs1   201502  2015-01-17  201502   2015-01-10  13.0
+cutoff = '2015-01-10', label_panel = None, label_cutoff = None
+
+>   def windows(template,panel,cutoff,label_panel=None,label_cutoff=None):raise NotImplementedError
+                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+vintage/data.py:2: NotImplementedError
+____________________ test_missing_lag_and_unavailable_label ____________________
+
+    def test_missing_lag_and_unavailable_label():
+>       t,p=fixture();f,drop=windows(t,p.iloc[1:],'2015-01-10');assert f.empty and drop[0]['reason']=='missing_history'
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_vintage/test_data.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+template =   sample_id region  origin_week  ... target_season  y_true lag_0
+0         x   hhs1       201453  ...     2014-2015     999   999
+
+[1 rows x 9 columns]
+panel =    region  epiweek    week_end   issue release_date  wili
+1    hhs1   201443  2014-10-25  201443   2015-01-10   1.0
+2 ...1.0
+12   hhs1   201501  2015-01-10  201501   2015-01-10  12.0
+13   hhs1   201502  2015-01-17  201502   2015-01-10  13.0
+cutoff = '2015-01-10', label_panel = None, label_cutoff = None
+
+>   def windows(template,panel,cutoff,label_panel=None,label_cutoff=None):raise NotImplementedError
+                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+vintage/data.py:2: NotImplementedError
+_____________________ test_complete_ten_region_group_only ______________________
+
+    def test_complete_ten_region_group_only():
+        d=pd.DataFrame({'sample_id':['a','b','c'],'origin_date':['a','a','b'],'region':['hhs1','hhs2','hhs1']})
+>       keep=complete(d,['hhs1','hhs2']);assert keep.sample_id.tolist()==['a','b']
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_vintage/test_data.py:34: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+frame =   sample_id origin_date region
+0         a           a   hhs1
+1         b           a   hhs2
+2         c           b   hhs1
+regions = ['hhs1', 'hhs2']
+
+>   def complete(frame,regions):raise NotImplementedError
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+vintage/data.py:3: NotImplementedError
+____________________ test_seasonal_missing_and_53_fallback _____________________
+
+    def test_seasonal_missing_and_53_fallback():
+        p=pd.DataFrame({'region':['hhs1','hhs1'],'epiweek':[201352,201401],'wili':[2.,4.]})
+        f=pd.DataFrame({'region':['hhs1','hhs1'],'target_week':[201453,201450]})
+>       x=seasonal(f,p,201439);assert x[0]==3 and np.isnan(x[1])
+          ^^^^^^^^^^^^^^^^^^^^
+
+tests_vintage/test_data.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+frame =   region  target_week
+0   hhs1       201453
+1   hhs1       201450
+panel =   region  epiweek  wili
+0   hhs1   201352   2.0
+1   hhs1   201401   4.0
+upper = 201439
+
+>   def seasonal(frame,panel,upper):raise NotImplementedError
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+vintage/data.py:4: NotImplementedError
+_____________________ test_null_release_not_assumed_known ______________________
+
+    def test_null_release_not_assumed_known():
+        d=pd.DataFrame([dict(region='hhs1',epiweek=201440,issue=201440,release_date=None,wili=1)])
+>       assert asof(d,'2015-01-01').empty
+               ^^^^^^^^^^^^^^^^^^^^
+
+tests_vintage/test_data.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records =   region  epiweek   issue release_date  wili
+0   hhs1   201440  201440         None     1
+cutoff = '2015-01-01'
+
+>   def asof(records,cutoff):raise NotImplementedError
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+vintage/data.py:1: NotImplementedError
+=========================== short test summary info ============================
+FAILED tests_vintage/test_data.py::test_release_before_selection_and_issue_tie
+FAILED tests_vintage/test_data.py::test_week53_window_and_no_final_values - N...
+FAILED tests_vintage/test_data.py::test_missing_lag_and_unavailable_label - N...
+FAILED tests_vintage/test_data.py::test_complete_ten_region_group_only - NotI...
+FAILED tests_vintage/test_data.py::test_seasonal_missing_and_53_fallback - No...
+FAILED tests_vintage/test_data.py::test_null_release_not_assumed_known - NotI...
+6 failed in 0.87s

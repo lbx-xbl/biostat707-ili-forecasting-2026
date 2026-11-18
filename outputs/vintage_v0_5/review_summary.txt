@@ -1,0 +1,5 @@
+Fresh read-only review: ready for delivery as an honest conditional archive-available replay. No actual leakage or invalid controlled comparison. No Critical/Important/actionable Minor findings.
+9/9 vintage tests and independent write=False verifier passed:351 snapshots,64700 window rows,3573 candidate-origin groups,38100 WIS rows,339 prior files. All saved selection/refit model reloads agree within1.78e-15.
+Additional direct checks:25400 new forecast rows exactly match frozen point/quantile values; all scored outcomes match normalized reference; raw release dates parse and values are finite within[0,100].
+Reviewed release-before-selection, separate fit cutoffs, live validation/test features, available training/validation labels, common eligibility/scaler/reference masks, residual calibration and matching evaluation truth. Seven-day issuance lead and restricted sample disclosed.
+Review does not prove intraday availability, archive completeness, prospective validity, fixed-parameter causal effects or every unrecorded historical action. No files changed or models retrained by reviewer. Parent handles visual QA and ZIP validation.

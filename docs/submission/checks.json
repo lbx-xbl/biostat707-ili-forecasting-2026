@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "imported_files_unchanged": 980,
+  "original_files_preserved_excluding_readme": 31,
+  "presentation_files_added": 0,
+  "point_summary_groups": 13,
+  "probability_summary_groups": 20,
+  "independent_pinball_wis_rows": 53150,
+  "report_source_hashes": 10,
+  "model_training_performed": false,
+  "fresh_dependency_installation_tested": false,
+  "python": "3.11.5"
+}

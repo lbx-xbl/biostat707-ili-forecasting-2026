@@ -1,0 +1,43 @@
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+________ test_verifier_aligns_by_regime_model_sample_not_csv_row_order _________
+
+    def test_verifier_aligns_by_regime_model_sample_not_csv_row_order():
+        w=pd.DataFrame({'sample_id':['a','a','b'],'model':['Ridge']*3,'regime':['AsOf','MatchedRevised','AsOf']})
+        s=w.assign(wis=[1.,2.,3.]).iloc[[2,0,1]].reset_index(drop=True)
+>       assert align_scores(w,s).wis.tolist()==[1.,2.,3.]
+E       assert [3.0, 1.0, 2.0] == [1.0, 2.0, 3.0]
+E         
+E         At index 0 diff: 3.0 != 1.0
+E         Use -v to get more diff
+
+tests_vintage/test_verifier_alignment.py:8: AssertionError
+________ test_verifier_rejects_missing_or_duplicate_score_keys[missing] ________
+
+damage = 'missing'
+
+    @pytest.mark.parametrize('damage',['missing','duplicate'])
+    def test_verifier_rejects_missing_or_duplicate_score_keys(damage):
+        w=pd.DataFrame({'sample_id':['a','b'],'model':['Ridge']*2,'regime':['AsOf']*2});s=w.assign(wis=[1.,2.])
+        s=s.iloc[:1] if damage=='missing' else pd.concat([s,s.iloc[:1]])
+>       with pytest.raises(ValueError):align_scores(w,s)
+E       Failed: DID NOT RAISE ValueError
+
+tests_vintage/test_verifier_alignment.py:14: Failed
+_______ test_verifier_rejects_missing_or_duplicate_score_keys[duplicate] _______
+
+damage = 'duplicate'
+
+    @pytest.mark.parametrize('damage',['missing','duplicate'])
+    def test_verifier_rejects_missing_or_duplicate_score_keys(damage):
+        w=pd.DataFrame({'sample_id':['a','b'],'model':['Ridge']*2,'regime':['AsOf']*2});s=w.assign(wis=[1.,2.])
+        s=s.iloc[:1] if damage=='missing' else pd.concat([s,s.iloc[:1]])
+>       with pytest.raises(ValueError):align_scores(w,s)
+E       Failed: DID NOT RAISE ValueError
+
+tests_vintage/test_verifier_alignment.py:14: Failed
+=========================== short test summary info ============================
+FAILED tests_vintage/test_verifier_alignment.py::test_verifier_aligns_by_regime_model_sample_not_csv_row_order
+FAILED tests_vintage/test_verifier_alignment.py::test_verifier_rejects_missing_or_duplicate_score_keys[missing]
+FAILED tests_vintage/test_verifier_alignment.py::test_verifier_rejects_missing_or_duplicate_score_keys[duplicate]
+3 failed in 2.09s

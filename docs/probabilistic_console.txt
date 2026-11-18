@@ -1,0 +1,18 @@
+COMMAND /Users/bowenz/Desktop/All classes/biostat707-ili-demo/.venv/bin/python run_probabilistic.py --config config/probabilistic.json --output-dir outputs/probabilistic_v0_4
+.......................                                                  [100%]
+23 passed in 0.36s
+ 
+FROZEN 2013-2014 distributions 5 samples/model 500
+FROZEN 2014-2015 distributions 5 samples/model 510
+FROZEN 2015-2016 distributions 5 samples/model 500
+FROZEN 2016-2017 distributions 5 samples/model 500
+FROZEN 2017-2018 distributions 5 samples/model 500
+FROZEN 2018-2019 distributions 5 samples/model 500
+Matplotlib is building the font cache; this may take a moment.
+  scope group       model    n  n_regions  macro_wis  median_mae  median_rmse  median_bias  dispersion  overprediction  underprediction  median_component  wis_difference_vs_persistence  relative_wis_reduction
+overall   all Persistence 3010         10   0.292567    0.402456     0.705186    -0.015864    0.076929        0.093761         0.104379          0.017498                       0.000000                0.000000
+overall   all    Seasonal 3010         10   0.389323    0.529835     0.960379    -0.208037    0.104782        0.072242         0.189263          0.023036                       0.096756               -0.330714
+overall   all       Ridge 3010         10   0.246630    0.339833     0.619841    -0.082474    0.065757        0.056252         0.109846          0.014775                      -0.045938                0.157016
+overall   all         HGB 3010         10   0.238286    0.319409     0.627248    -0.094587    0.063399        0.048839         0.112160          0.013887                      -0.054282                0.185535
+overall   all        LSTM 3010         10   0.248713    0.334562     0.629886    -0.074323    0.062478        0.059445         0.112244          0.014546                      -0.043855                0.149896
+STATUS COMPLETE EXIT 0 SECONDS 20.94213141599903

@@ -1,0 +1,377 @@
+FFFFFFFFFFFFFFFF                                                         [100%]
+=================================== FAILURES ===================================
+_____________ test_blocks_contiguous_nonwrapping_and_deterministic _____________
+
+    def test_blocks_contiguous_nonwrapping_and_deterministic():
+>       a=block_indices(11,4,25,123)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_diagnostics/test_bootstrap.py:7: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (11, 4, 25, 123)
+
+>   def block_indices(*args): raise NotImplementedError
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+diagnostics/bootstrap.py:1: NotImplementedError
+__________________ test_joint_week_draws_and_rmse_not_average __________________
+
+    def test_joint_week_draws_and_rmse_not_average():
+        # time x region x model. Perfect pairing with scaled errors.
+        e=np.array([[[1.,0.],[3.,1.]],[[5.,2.],[7.,3.]],[[9.,4.],[11.,5.]]])
+        indices=np.array([[2,0,2],[1,1,0]])
+>       a,s=loss_sums(e,indices)
+            ^^^^^^^^^^^^^^^^^^^^
+
+tests_diagnostics/test_bootstrap.py:18: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (array([[[ 1.,  0.],
+        [ 3.,  1.]],
+
+       [[ 5.,  2.],
+        [ 7.,  3.]],
+
+       [[ 9.,  4.],
+        [11.,  5.]]]), array([[2, 0, 2],
+       [1, 1, 0]]))
+
+>   def loss_sums(*args): raise NotImplementedError
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+diagnostics/bootstrap.py:2: NotImplementedError
+__________ test_cube_rejects_unpaired_or_nonconsecutive_data[missing] __________
+
+mutation = 'missing'
+
+    @pytest.mark.parametrize('mutation',['missing','duplicate','metadata','truth','gap','nonfinite'])
+    def test_cube_rejects_unpaired_or_nonconsecutive_data(mutation):
+        d=panel()
+        if mutation=='missing': d=d.iloc[1:]
+        if mutation=='duplicate': d=pd.concat([d,d.iloc[[0]]])
+        if mutation=='metadata': d.loc[0,'origin_week']=201339
+        if mutation=='truth': d.loc[0,'y_true']=10
+        if mutation=='gap': d.loc[d.target_week==201344,'target_date']='2013-11-09'
+        if mutation=='nonfinite': d.loc[0,'y_pred']=np.nan
+>       with pytest.raises(ValueError): make_cubes(d,['Persistence','Ridge'],['hhs1','hhs2'])
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_diagnostics/test_bootstrap.py:45: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (   sample_id region  origin_week  ...        model y_true y_pred
+1     hhs2_0   hhs2       201340  ...  Persistence  ... hhs2       201342  ...        Ridge    2.0    3.0
+
+[11 rows x 10 columns], ['Persistence', 'Ridge'], ['hhs1', 'hhs2'])
+
+>   def make_cubes(*args): raise NotImplementedError
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+diagnostics/bootstrap.py:4: NotImplementedError
+_________ test_cube_rejects_unpaired_or_nonconsecutive_data[duplicate] _________
+
+mutation = 'duplicate'
+
+    @pytest.mark.parametrize('mutation',['missing','duplicate','metadata','truth','gap','nonfinite'])
+    def test_cube_rejects_unpaired_or_nonconsecutive_data(mutation):
+        d=panel()
+        if mutation=='missing': d=d.iloc[1:]
+        if mutation=='duplicate': d=pd.concat([d,d.iloc[[0]]])
+        if mutation=='metadata': d.loc[0,'origin_week']=201339
+        if mutation=='truth': d.loc[0,'y_true']=10
+        if mutation=='gap': d.loc[d.target_week==201344,'target_date']='2013-11-09'
+        if mutation=='nonfinite': d.loc[0,'y_pred']=np.nan
+>       with pytest.raises(ValueError): make_cubes(d,['Persistence','Ridge'],['hhs1','hhs2'])
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_diagnostics/test_bootstrap.py:45: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (   sample_id region  origin_week  ...        model y_true y_pred
+0     hhs1_0   hhs1       201340  ...  Persistence  ... hhs1       201340  ...  Persistence    0.0    1.0
+
+[13 rows x 10 columns], ['Persistence', 'Ridge'], ['hhs1', 'hhs2'])
+
+>   def make_cubes(*args): raise NotImplementedError
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+diagnostics/bootstrap.py:4: NotImplementedError
+_________ test_cube_rejects_unpaired_or_nonconsecutive_data[metadata] __________
+
+mutation = 'metadata'
+
+    @pytest.mark.parametrize('mutation',['missing','duplicate','metadata','truth','gap','nonfinite'])
+    def test_cube_rejects_unpaired_or_nonconsecutive_data(mutation):
+        d=panel()
+        if mutation=='missing': d=d.iloc[1:]
+        if mutation=='duplicate': d=pd.concat([d,d.iloc[[0]]])
+        if mutation=='metadata': d.loc[0,'origin_week']=201339
+        if mutation=='truth': d.loc[0,'y_true']=10
+        if mutation=='gap': d.loc[d.target_week==201344,'target_date']='2013-11-09'
+        if mutation=='nonfinite': d.loc[0,'y_pred']=np.nan
+>       with pytest.raises(ValueError): make_cubes(d,['Persistence','Ridge'],['hhs1','hhs2'])
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_diagnostics/test_bootstrap.py:45: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (   sample_id region  origin_week  ...        model y_true y_pred
+0     hhs1_0   hhs1       201339  ...  Persistence  ... hhs2       201342  ...        Ridge    2.0    3.0
+
+[12 rows x 10 columns], ['Persistence', 'Ridge'], ['hhs1', 'hhs2'])
+
+>   def make_cubes(*args): raise NotImplementedError
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+diagnostics/bootstrap.py:4: NotImplementedError
+___________ test_cube_rejects_unpaired_or_nonconsecutive_data[truth] ___________
+
+mutation = 'truth'
+
+    @pytest.mark.parametrize('mutation',['missing','duplicate','metadata','truth','gap','nonfinite'])
+    def test_cube_rejects_unpaired_or_nonconsecutive_data(mutation):
+        d=panel()
+        if mutation=='missing': d=d.iloc[1:]
+        if mutation=='duplicate': d=pd.concat([d,d.iloc[[0]]])
+        if mutation=='metadata': d.loc[0,'origin_week']=201339
+        if mutation=='truth': d.loc[0,'y_true']=10
+        if mutation=='gap': d.loc[d.target_week==201344,'target_date']='2013-11-09'
+        if mutation=='nonfinite': d.loc[0,'y_pred']=np.nan
+>       with pytest.raises(ValueError): make_cubes(d,['Persistence','Ridge'],['hhs1','hhs2'])
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_diagnostics/test_bootstrap.py:45: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (   sample_id region  origin_week  ...        model y_true y_pred
+0     hhs1_0   hhs1       201340  ...  Persistence  ... hhs2       201342  ...        Ridge    2.0    3.0
+
+[12 rows x 10 columns], ['Persistence', 'Ridge'], ['hhs1', 'hhs2'])
+
+>   def make_cubes(*args): raise NotImplementedError
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+diagnostics/bootstrap.py:4: NotImplementedError
+____________ test_cube_rejects_unpaired_or_nonconsecutive_data[gap] ____________
+
+mutation = 'gap'
+
+    @pytest.mark.parametrize('mutation',['missing','duplicate','metadata','truth','gap','nonfinite'])
+    def test_cube_rejects_unpaired_or_nonconsecutive_data(mutation):
+        d=panel()
+        if mutation=='missing': d=d.iloc[1:]
+        if mutation=='duplicate': d=pd.concat([d,d.iloc[[0]]])
+        if mutation=='metadata': d.loc[0,'origin_week']=201339
+        if mutation=='truth': d.loc[0,'y_true']=10
+        if mutation=='gap': d.loc[d.target_week==201344,'target_date']='2013-11-09'
+        if mutation=='nonfinite': d.loc[0,'y_pred']=np.nan
+>       with pytest.raises(ValueError): make_cubes(d,['Persistence','Ridge'],['hhs1','hhs2'])
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_diagnostics/test_bootstrap.py:45: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (   sample_id region  origin_week  ...        model y_true y_pred
+0     hhs1_0   hhs1       201340  ...  Persistence  ... hhs2       201342  ...        Ridge    2.0    3.0
+
+[12 rows x 10 columns], ['Persistence', 'Ridge'], ['hhs1', 'hhs2'])
+
+>   def make_cubes(*args): raise NotImplementedError
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+diagnostics/bootstrap.py:4: NotImplementedError
+_________ test_cube_rejects_unpaired_or_nonconsecutive_data[nonfinite] _________
+
+mutation = 'nonfinite'
+
+    @pytest.mark.parametrize('mutation',['missing','duplicate','metadata','truth','gap','nonfinite'])
+    def test_cube_rejects_unpaired_or_nonconsecutive_data(mutation):
+        d=panel()
+        if mutation=='missing': d=d.iloc[1:]
+        if mutation=='duplicate': d=pd.concat([d,d.iloc[[0]]])
+        if mutation=='metadata': d.loc[0,'origin_week']=201339
+        if mutation=='truth': d.loc[0,'y_true']=10
+        if mutation=='gap': d.loc[d.target_week==201344,'target_date']='2013-11-09'
+        if mutation=='nonfinite': d.loc[0,'y_pred']=np.nan
+>       with pytest.raises(ValueError): make_cubes(d,['Persistence','Ridge'],['hhs1','hhs2'])
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_diagnostics/test_bootstrap.py:45: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (   sample_id region  origin_week  ...        model y_true y_pred
+0     hhs1_0   hhs1       201340  ...  Persistence  ... hhs2       201342  ...        Ridge    2.0    3.0
+
+[12 rows x 10 columns], ['Persistence', 'Ridge'], ['hhs1', 'hhs2'])
+
+>   def make_cubes(*args): raise NotImplementedError
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+diagnostics/bootstrap.py:4: NotImplementedError
+____________ test_summary_uses_original_point_and_linear_quantiles _____________
+
+    def test_summary_uses_original_point_and_linear_quantiles():
+>       s=interval_summary(np.array([-3.,-2.,-1.,0.,1.]),point=0.5)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_diagnostics/test_bootstrap.py:48: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (array([-3., -2., -1.,  0.,  1.]),), kwargs = {'point': 0.5}
+
+>   def interval_summary(*args,**kwargs): raise NotImplementedError
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+diagnostics/bootstrap.py:5: NotImplementedError
+___________ test_empirical_score_difference_not_prediction_distance ____________
+
+    def test_empirical_score_difference_not_prediction_distance():
+>       s,z=decompose([0,1,2],[0,2,1])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_diagnostics/test_calibration.py:6: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = ([0, 1, 2], [0, 2, 1])
+
+>   def decompose(*args): raise NotImplementedError
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+diagnostics/calibration.py:1: NotImplementedError
+__________________ test_ties_constant_forecast_and_bias_split __________________
+
+    def test_ties_constant_forecast_and_bias_split():
+>       s,z=decompose([0,0],[1,3]); np.testing.assert_allclose(z,[2,2])
+            ^^^^^^^^^^^^^^^^^^^^^^
+
+tests_diagnostics/test_calibration.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = ([0, 0], [1, 3])
+
+>   def decompose(*args): raise NotImplementedError
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+diagnostics/calibration.py:1: NotImplementedError
+___________________ test_perfect_forecast_and_constant_truth ___________________
+
+    def test_perfect_forecast_and_constant_truth():
+>       s,z=decompose([1,2,3],[1,2,3])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_diagnostics/test_calibration.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = ([1, 2, 3], [1, 2, 3])
+
+>   def decompose(*args): raise NotImplementedError
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+diagnostics/calibration.py:1: NotImplementedError
+__________________________ test_invalid_arrays[x0-y0] __________________________
+
+x = [], y = []
+
+    @pytest.mark.parametrize('x,y',[([],[]),([1,np.nan],[1,2]),([1],[1,2]),([np.inf],[1])])
+    def test_invalid_arrays(x,y):
+>       with pytest.raises(ValueError): decompose(x,y)
+                                        ^^^^^^^^^^^^^^
+
+tests_diagnostics/test_calibration.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = ([], [])
+
+>   def decompose(*args): raise NotImplementedError
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+diagnostics/calibration.py:1: NotImplementedError
+__________________________ test_invalid_arrays[x1-y1] __________________________
+
+x = [1, nan], y = [1, 2]
+
+    @pytest.mark.parametrize('x,y',[([],[]),([1,np.nan],[1,2]),([1],[1,2]),([np.inf],[1])])
+    def test_invalid_arrays(x,y):
+>       with pytest.raises(ValueError): decompose(x,y)
+                                        ^^^^^^^^^^^^^^
+
+tests_diagnostics/test_calibration.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = ([1, nan], [1, 2])
+
+>   def decompose(*args): raise NotImplementedError
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+diagnostics/calibration.py:1: NotImplementedError
+__________________________ test_invalid_arrays[x2-y2] __________________________
+
+x = [1], y = [1, 2]
+
+    @pytest.mark.parametrize('x,y',[([],[]),([1,np.nan],[1,2]),([1],[1,2]),([np.inf],[1])])
+    def test_invalid_arrays(x,y):
+>       with pytest.raises(ValueError): decompose(x,y)
+                                        ^^^^^^^^^^^^^^
+
+tests_diagnostics/test_calibration.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = ([1], [1, 2])
+
+>   def decompose(*args): raise NotImplementedError
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+diagnostics/calibration.py:1: NotImplementedError
+__________________________ test_invalid_arrays[x3-y3] __________________________
+
+x = [inf], y = [1]
+
+    @pytest.mark.parametrize('x,y',[([],[]),([1,np.nan],[1,2]),([1],[1,2]),([np.inf],[1])])
+    def test_invalid_arrays(x,y):
+>       with pytest.raises(ValueError): decompose(x,y)
+                                        ^^^^^^^^^^^^^^
+
+tests_diagnostics/test_calibration.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = ([inf], [1])
+
+>   def decompose(*args): raise NotImplementedError
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+diagnostics/calibration.py:1: NotImplementedError
+=========================== short test summary info ============================
+FAILED tests_diagnostics/test_bootstrap.py::test_blocks_contiguous_nonwrapping_and_deterministic
+FAILED tests_diagnostics/test_bootstrap.py::test_joint_week_draws_and_rmse_not_average
+FAILED tests_diagnostics/test_bootstrap.py::test_cube_rejects_unpaired_or_nonconsecutive_data[missing]
+FAILED tests_diagnostics/test_bootstrap.py::test_cube_rejects_unpaired_or_nonconsecutive_data[duplicate]
+FAILED tests_diagnostics/test_bootstrap.py::test_cube_rejects_unpaired_or_nonconsecutive_data[metadata]
+FAILED tests_diagnostics/test_bootstrap.py::test_cube_rejects_unpaired_or_nonconsecutive_data[truth]
+FAILED tests_diagnostics/test_bootstrap.py::test_cube_rejects_unpaired_or_nonconsecutive_data[gap]
+FAILED tests_diagnostics/test_bootstrap.py::test_cube_rejects_unpaired_or_nonconsecutive_data[nonfinite]
+FAILED tests_diagnostics/test_bootstrap.py::test_summary_uses_original_point_and_linear_quantiles
+FAILED tests_diagnostics/test_calibration.py::test_empirical_score_difference_not_prediction_distance
+FAILED tests_diagnostics/test_calibration.py::test_ties_constant_forecast_and_bias_split
+FAILED tests_diagnostics/test_calibration.py::test_perfect_forecast_and_constant_truth
+FAILED tests_diagnostics/test_calibration.py::test_invalid_arrays[x0-y0] - No...
+FAILED tests_diagnostics/test_calibration.py::test_invalid_arrays[x1-y1] - No...
+FAILED tests_diagnostics/test_calibration.py::test_invalid_arrays[x2-y2] - No...
+FAILED tests_diagnostics/test_calibration.py::test_invalid_arrays[x3-y3] - No...
+16 failed in 0.52s

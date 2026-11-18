@@ -1,0 +1,61 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+_________________ test_equal_region_wis_and_pooled_median_rmse _________________
+
+    def test_equal_region_wis_and_pooled_median_rmse():
+        d=pd.DataFrame({'sample_id':['a','b','c'],'model':['Persistence']*3,'region':['hhs1','hhs1','hhs2'],'target_season':['2013-2014']*3,'wis':[1.,3.,9.],'dispersion':[1.,3.,9.],'overprediction':[0.]*3,'underprediction':[0.]*3,'median_component':[0.]*3,'median_error':[1.,3.,9.],'median':[2.,4.,10.],'y_true':[1.]*3})
+        w=d[['sample_id','model','region','target_season','y_true']].copy();w['q_0.100']=0.;w['q_0.500']=1.;w['q_0.900']=1.
+>       met,cov,rel,ints=summaries(d,w,[.1,.5,.9]);r=met[met.scope=='overall'].iloc[0]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_probabilistic/test_evaluate.py:8: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scored =   sample_id        model region  ... median_error  median  y_true
+0         a  Persistence   hhs1  ...          1.0   ....          3.0     4.0     1.0
+2         c  Persistence   hhs2  ...          9.0    10.0     1.0
+
+[3 rows x 12 columns]
+wide =   sample_id        model region  ... q_0.100  q_0.500  q_0.900
+0         a  Persistence   hhs1  ...     0.0      1.0  ...hs1  ...     0.0      1.0      1.0
+2         c  Persistence   hhs2  ...     0.0      1.0      1.0
+
+[3 rows x 8 columns]
+levels = [0.1, 0.5, 0.9]
+
+>   def summaries(scored,wide,levels): raise NotImplementedError
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+probabilistic/evaluate.py:1: NotImplementedError
+________________________ test_paired_resampling_manual _________________________
+
+    def test_paired_resampling_manual():
+        cube=np.array([[[1.,2.],[3.,4.]],[[5.,7.],[9.,11.]],[[0.,1.],[2.,4.]]])
+        idx=np.array([[0,0,2],[2,1,0]])
+>       actual=paired_means(cube,idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+
+tests_probabilistic/test_evaluate.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cube = array([[[ 1.,  2.],
+        [ 3.,  4.]],
+
+       [[ 5.,  7.],
+        [ 9., 11.]],
+
+       [[ 0.,  1.],
+        [ 2.,  4.]]])
+indices = array([[0, 0, 2],
+       [2, 1, 0]])
+
+>   def paired_means(cube,indices): raise NotImplementedError
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   NotImplementedError
+
+probabilistic/evaluate.py:2: NotImplementedError
+=========================== short test summary info ============================
+FAILED tests_probabilistic/test_evaluate.py::test_equal_region_wis_and_pooled_median_rmse
+FAILED tests_probabilistic/test_evaluate.py::test_paired_resampling_manual - ...
+2 failed in 0.41s

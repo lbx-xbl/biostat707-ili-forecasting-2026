@@ -1,0 +1,18 @@
+{
+  "frozen_utc": "2026-11-17T18:47:14.373029+00:00",
+  "sha256": {
+    "folds/2013-2014/AsOf/forecasts_before_evaluation.csv": "ea1bed0e42f172dc95841fb81b6b81a8faf9e781f4384d7786c2b377b41a749b",
+    "folds/2013-2014/MatchedRevised/forecasts_before_evaluation.csv": "1534abac113c158b75c60db4652804a0aedcbe842e1330c7533198aa5f94ac3a",
+    "folds/2014-2015/AsOf/forecasts_before_evaluation.csv": "02c1d13490a090046dd46a1bea786f82e2c896c855ce7fee02e98a5c26b75bd4",
+    "folds/2014-2015/MatchedRevised/forecasts_before_evaluation.csv": "66f3f8f351dc150fdc6017d618743c07fcc35c0911792e978febcfbd0f4ccba6",
+    "folds/2015-2016/AsOf/forecasts_before_evaluation.csv": "8dc386eb38dc35578e597a0fd7e193af245e6be76f4a1028e1910d8f470bc7df",
+    "folds/2015-2016/MatchedRevised/forecasts_before_evaluation.csv": "afacbb5c7647208b3ad35903cd59f04b4b20d380fd413a7f1ab9ed5bbcb39670",
+    "folds/2016-2017/AsOf/forecasts_before_evaluation.csv": "af66a5cd4dfe1e9f16fefac7eb35805f0fada80804eb9826fc31216f31801773",
+    "folds/2016-2017/MatchedRevised/forecasts_before_evaluation.csv": "a10c7e9bc0c7a62bf9dd8555c3a23f2c1373883ae1403eee1285d785c27fec12",
+    "folds/2017-2018/AsOf/forecasts_before_evaluation.csv": "0fe0be72723d87a882e4f20f3bc2463f606c01b003f0dbe8226f32d10b828fc3",
+    "folds/2017-2018/MatchedRevised/forecasts_before_evaluation.csv": "d5c35a54a261eb01a0f610c8fc832b38e759a9a6e5a0dea59f33739ada55d322",
+    "folds/2018-2019/AsOf/forecasts_before_evaluation.csv": "25277410d020a0f7aa7444f40d229b07015ddb5aca5923b6ca0882e908baac8c",
+    "folds/2018-2019/MatchedRevised/forecasts_before_evaluation.csv": "05f7052f3459947172a422214ed96b646825653d11f19fef044b1f74f263d613",
+    "forecasts_before_evaluation.csv": "73724d12d9857e89e0ad132b05ff57e1389ae31ebe8d5341bce08e625d66e1b5"
+  }
+}

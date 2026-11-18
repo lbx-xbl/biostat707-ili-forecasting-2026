@@ -1,0 +1,30 @@
+Traceback (most recent call last):
+  File "/Users/bowenz/Desktop/All classes/biostat707-ili-demo/verify_vintage.py", line 119, in <module>
+    ap=argparse.ArgumentParser();ap.add_argument('--output-dir',default='outputs/vintage_v0_5');a=ap.parse_args();verify(a.output_dir)
+                                                                                                                  ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bowenz/Desktop/All classes/biostat707-ili-demo/verify_vintage.py", line 99, in verify
+    e=y[:,None]-q;wis=2*np.where(e>=0,levels*e,(levels-1)*e).mean(axis=1);close(s.wis,wis);close(s['median'],q[:,11]);close(s.median_error,q[:,11]-y)
+                                                                          ^^^^^^^^^^^^^^^^
+  File "/Users/bowenz/Desktop/All classes/biostat707-ili-demo/verify_vintage.py", line 16, in close
+    def close(a,b,tol=1e-10):np.testing.assert_allclose(a,b,rtol=tol,atol=tol,equal_nan=True)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bowenz/Desktop/All classes/biostat707-ili-demo/.venv/lib/python3.11/site-packages/numpy/testing/_private/utils.py", line 1768, in assert_allclose
+    assert_array_compare(compare, actual, desired, err_msg=str(err_msg),
+  File "/Users/bowenz/Desktop/All classes/biostat707-ili-demo/.venv/lib/python3.11/site-packages/numpy/testing/_private/utils.py", line 983, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Not equal to tolerance rtol=1e-10, atol=1e-10
+
+Mismatched elements: 22050 / 38100 (57.9%)
+First 5 mismatches are at indices:
+ [1000]: 0.0943361614419984 (ACTUAL), 0.11364272544656936 (DESIRED)
+ [1001]: 0.1727916240587874 (ACTUAL), 0.5917659099025633 (DESIRED)
+ [1002]: 0.0980835675511138 (ACTUAL), 0.9665871905816945 (DESIRED)
+ [1003]: 0.100952904821694 (ACTUAL), 0.49110093092768775 (DESIRED)
+ [1004]: 0.0958076354617504 (ACTUAL), 0.7301705221811019 (DESIRED)
+Max absolute difference among violations: 6.2182541
+Max relative difference among violations: 86.93498623
+ ACTUAL: array([0.111978, 0.677885, 0.416291, ..., 0.077907, 0.109849, 0.08496 ],
+      shape=(38100,))
+ DESIRED: array([0.111978, 0.677885, 0.416291, ..., 0.077907, 0.109849, 0.08496 ],
+      shape=(38100,))

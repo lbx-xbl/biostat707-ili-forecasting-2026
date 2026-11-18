@@ -1,0 +1,118 @@
+{
+  "status": "COMPLETE",
+  "started_utc": "2026-10-20T13:12:37.976236+00:00",
+  "command": "run_demo.py --config config/demo.json --output-dir outputs/demo_v0_1",
+  "checks": {
+    "pytest": {
+      "exit_code": 0,
+      "output": "...........                                                              [100%]\n11 passed in 2.79s"
+    },
+    "calendar_boundaries_and_counts": "PASS",
+    "train_only_preprocessing": "PASS",
+    "same_evaluation_keys_and_persistence": "PASS",
+    "metrics_recomputed_from_saved_csv": "PASS",
+    "model_reload_max_abs_error": {
+      "Persistence": 1.7763568394002505e-15,
+      "Ridge": 4.440892098500626e-16,
+      "HGB": 4.440892098500626e-16,
+      "LSTM": 4.440892098500626e-16
+    },
+    "test_labels_changed_at_fixed_features_no_effect": "PASS",
+    "visual_inspection": "PASS: four figures inspected; title overlap corrected without retraining",
+    "independent_review": "PASS: no Critical/Important findings; review_summary.txt"
+  },
+  "unfinished": [],
+  "environment": {
+    "python": "3.11.5 (v3.11.5:cce6ba91b3, Aug 24 2023, 10:50:31) [Clang 13.0.0 (clang-1300.0.29.30)]",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "device": "cpu",
+    "threads": 4,
+    "versions": {
+      "numpy": "2.4.6",
+      "pandas": "3.0.6",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1",
+      "epiweeks": "2.4.0",
+      "matplotlib": "3.11.2",
+      "pytest": "9.1.1"
+    }
+  },
+  "data_rows": 4690,
+  "window_counts": {
+    "Test": 1020,
+    "Train": 3000,
+    "Validation": 500
+  },
+  "threadpools": [
+    {
+      "user_api": "openmp",
+      "internal_api": "openmp",
+      "num_threads": 4,
+      "prefix": "libomp",
+      "filepath": "/Users/bowenz/Desktop/All classes/biostat707-ili-demo/.venv/lib/python3.11/site-packages/torch/lib/libomp.dylib",
+      "version": null
+    },
+    {
+      "user_api": "openmp",
+      "internal_api": "openmp",
+      "num_threads": 4,
+      "prefix": "libomp",
+      "filepath": "/Users/bowenz/Desktop/All classes/biostat707-ili-demo/.venv/lib/python3.11/site-packages/sklearn/.dylibs/libomp.dylib",
+      "version": null
+    }
+  ],
+  "negative_predictions": [
+    {
+      "split": "Validation",
+      "model": "Persistence",
+      "negative_predictions": 0
+    },
+    {
+      "split": "Validation",
+      "model": "Ridge",
+      "negative_predictions": 0
+    },
+    {
+      "split": "Validation",
+      "model": "HGB",
+      "negative_predictions": 0
+    },
+    {
+      "split": "Validation",
+      "model": "LSTM",
+      "negative_predictions": 0
+    },
+    {
+      "split": "Test",
+      "model": "Persistence",
+      "negative_predictions": 0
+    },
+    {
+      "split": "Test",
+      "model": "Ridge",
+      "negative_predictions": 0
+    },
+    {
+      "split": "Test",
+      "model": "HGB",
+      "negative_predictions": 0
+    },
+    {
+      "split": "Test",
+      "model": "LSTM",
+      "negative_predictions": 0
+    }
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 31.4052050829996,
+  "finished_utc": "2026-10-20T13:13:09.381508+00:00",
+  "postprocessing": {
+    "command": ".venv/bin/python regenerate_report.py",
+    "exit_code": 0,
+    "reason": "Remove redundant time-series title overlapping legend; no training or prediction changes",
+    "tests": "11 passed, exit 0"
+  },
+  "delivery_prepared_utc": "2026-10-20T13:15:26.139670+00:00",
+  "project_setup_to_delivery_seconds": 555.283421754837
+}

@@ -1,0 +1,18 @@
+{
+  "selection": {
+    "mu": 1.6084875803002368,
+    "sigma": 1.281427715380354,
+    "n_unique_observations": 3650,
+    "fit_last_week": 201739,
+    "fit_first_week": 201040,
+    "ddof": 0
+  },
+  "refit": {
+    "mu": 1.6808092543405275,
+    "sigma": 1.449786964269431,
+    "n_unique_observations": 4170,
+    "fit_last_week": 201839,
+    "fit_first_week": 201040,
+    "ddof": 0
+  }
+}

@@ -1,0 +1,24 @@
+COMMAND: /Users/bowenz/Desktop/All classes/biostat707-ili-demo/.venv/bin/python run_diagnostics.py --config config/diagnostics.json --output-dir outputs/diagnostics_v0_3
+................                                                         [100%]
+16 passed in 1.35s
+ 
+BOOTSTRAP: 5000 replicates for each fixed L=8,4,13; paired all regions/models
+CALIBRATION: grouped mean isotonic diagnostics; no forecast replacement
+   model metric  estimate  ci_lower  ci_upper  bootstrap_center_shift
+Seasonal    MAE  0.126106  0.055746  0.234084                0.010030
+Seasonal   RMSE  0.257521  0.086015  0.470995                0.010627
+   Ridge    MAE -0.063494 -0.109617 -0.040972               -0.010592
+   Ridge   RMSE -0.087275 -0.163611 -0.034137               -0.007445
+     HGB    MAE -0.083052 -0.141694 -0.042162               -0.008370
+     HGB   RMSE -0.082164 -0.226233  0.050269               -0.010122
+    LSTM    MAE -0.066888 -0.115228 -0.040037               -0.009412
+    LSTM   RMSE -0.074537 -0.167734  0.001412               -0.007384
+      model      mse      mcb      dsc      unc  root_mcb      bias
+Persistence 0.496772 0.068873 2.113620 2.541518  0.262437  0.003878
+   Seasonal 0.926100 0.147962 1.763380 2.541518  0.384658 -0.242213
+      Ridge 0.381362 0.051887 2.212044 2.541518  0.227787 -0.073099
+        HGB 0.387701 0.082330 2.236147 2.541518  0.286932 -0.070981
+       LSTM 0.397257 0.075054 2.219316 2.541518  0.273960 -0.072502
+STATUS COMPLETE EXIT 0 SECONDS 5.332144791958854
+
+Final checks: pytest tests tests_rolling tests_diagnostics -q: 38 passed. Independent review and numerical recomputation passed. Report-only regeneration added findings and separated figure labels; models and predictions unchanged.

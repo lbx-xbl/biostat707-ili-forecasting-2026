@@ -1,0 +1,49 @@
+COMMAND /Users/bowenz/Desktop/All classes/biostat707-ili-demo/.venv/bin/python run_vintage.py --config config/vintage.json --output-dir outputs/vintage_v0_5
+ELIGIBLE 2013-2014 {'train': 40, 'validation': 20, 'refit': 60, 'test': 20}
+ELIGIBLE 2014-2015 {'train': 60, 'validation': 20, 'refit': 195, 'test': 47}
+ELIGIBLE 2015-2016 {'train': 195, 'validation': 47, 'refit': 248, 'test': 46}
+ELIGIBLE 2016-2017 {'train': 248, 'validation': 46, 'refit': 300, 'test': 48}
+ELIGIBLE 2017-2018 {'train': 300, 'validation': 48, 'refit': 352, 'test': 46}
+ELIGIBLE 2018-2019 {'train': 352, 'validation': 46, 'refit': 404, 'test': 47}
+FIT 2013-2014 AsOf
+FROZEN 2013-2014 AsOf alpha 10 epoch 46
+FIT 2013-2014 MatchedRevised
+FROZEN 2013-2014 MatchedRevised alpha 10 epoch 59
+FIT 2014-2015 AsOf
+FROZEN 2014-2015 AsOf alpha 10 epoch 44
+FIT 2014-2015 MatchedRevised
+FROZEN 2014-2015 MatchedRevised alpha 10 epoch 44
+FIT 2015-2016 AsOf
+FROZEN 2015-2016 AsOf alpha 100 epoch 39
+FIT 2015-2016 MatchedRevised
+FROZEN 2015-2016 MatchedRevised alpha 10 epoch 31
+FIT 2016-2017 AsOf
+FROZEN 2016-2017 AsOf alpha 100 epoch 11
+FIT 2016-2017 MatchedRevised
+FROZEN 2016-2017 MatchedRevised alpha 100 epoch 11
+FIT 2017-2018 AsOf
+FROZEN 2017-2018 AsOf alpha 100 epoch 15
+FIT 2017-2018 MatchedRevised
+FROZEN 2017-2018 MatchedRevised alpha 100 epoch 21
+FIT 2018-2019 AsOf
+FROZEN 2018-2019 AsOf alpha 0.1 epoch 27
+FIT 2018-2019 MatchedRevised
+FROZEN 2018-2019 MatchedRevised alpha 0.1 epoch 27
+Matplotlib is building the font cache; this may take a moment.
+        regime       model  point_macro_mae  point_rmse  macro_wis
+          AsOf       Ridge         0.383772    0.650128   0.274366
+          AsOf         HGB         0.379331    0.679031   0.278031
+          AsOf        LSTM         0.390641    0.684652   0.283661
+          AsOf Persistence         0.473800    0.775139   0.333531
+          AsOf    Seasonal         0.549242    0.998307   0.403149
+MatchedRevised       Ridge         0.344202    0.625777   0.250554
+MatchedRevised         HGB         0.335766    0.657039   0.251435
+MatchedRevised        LSTM         0.342317    0.641428   0.253095
+MatchedRevised Persistence         0.416558    0.718883   0.302637
+MatchedRevised    Seasonal         0.547944    0.998739   0.401682
+OriginalFrozen Persistence         0.416558    0.718883   0.300259
+OriginalFrozen    Seasonal         0.547944    0.998739   0.398725
+OriginalFrozen       Ridge         0.345252    0.626452   0.250962
+OriginalFrozen         HGB         0.334666    0.654933   0.249026
+OriginalFrozen        LSTM         0.345871    0.651144   0.256759
+STATUS COMPLETE EXIT 0 SECONDS 130.46812795801088

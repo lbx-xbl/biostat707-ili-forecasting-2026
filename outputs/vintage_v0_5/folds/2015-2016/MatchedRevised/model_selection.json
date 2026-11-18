@@ -1,0 +1,46 @@
+{
+  "seed": 2026,
+  "ridge_candidates": [
+    {
+      "alpha": 0.1,
+      "mae": 0.318891573615236
+    },
+    {
+      "alpha": 1,
+      "mae": 0.3188213438991713
+    },
+    {
+      "alpha": 10,
+      "mae": 0.31852198754669186
+    },
+    {
+      "alpha": 100,
+      "mae": 0.3242845530326957
+    },
+    {
+      "alpha": 1000,
+      "mae": 0.3978709734795859
+    },
+    {
+      "alpha": 10000,
+      "mae": 0.6279844602027038
+    },
+    {
+      "alpha": 100000,
+      "mae": 0.9042469065245369
+    }
+  ],
+  "ridge_alpha": 10,
+  "ridge_grid_boundary": false,
+  "lstm_best_epoch": 31,
+  "lstm_selection_total_epochs": 39,
+  "selection_transform": {
+    "mu": 1.5450512976442308,
+    "sigma": 1.2086109042943742,
+    "n_unique_observations": 2080,
+    "fit_last_week": 201439,
+    "fit_first_week": 201040,
+    "ddof": 0
+  },
+  "selection_uses": "Train weights; Validation MAE only"
+}

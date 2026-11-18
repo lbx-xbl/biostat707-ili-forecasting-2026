@@ -1,0 +1,22 @@
+{
+  "selection_sha256": "78b0f5626942cb8a128ddda6758a7ab6aa9595640109d00fc5d32489a08763bb",
+  "final_refit_epochs": 56,
+  "refit_transform": {
+    "mu": 1.5374840699358976,
+    "sigma": 1.2119933060744663,
+    "n_unique_observations": 1560,
+    "fit_split": "Train",
+    "ddof": 0,
+    "fit_first_week": 201040,
+    "fit_last_week": 201339
+  },
+  "final_model_sha256": {
+    "hgb.joblib": "45c3d1bf0eaf53a01dfcb8a2612c829fe15be799278926c1b6e410a5e5b2509a",
+    "lstm.pt": "b9d7b42c7c514d6af4676b507d558c98c26177c5c4c8baa9b81516ab267edfb6",
+    "ridge.joblib": "4c0232e8a54dc4b822c03796a6852abca58c56b3d0aa2c6c26a451b2013bcb5b"
+  },
+  "frozen_utc": "2026-11-17T15:25:57.087546+00:00",
+  "test_season": "2013-2014",
+  "test_first_week": 201340,
+  "test_last_week": 201439
+}
