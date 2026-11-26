@@ -1,0 +1,119 @@
+{
+  "missingness": {
+    "rows": 4690,
+    "regions": 10,
+    "weeks": 469,
+    "first_week": 201040,
+    "last_week": 201939,
+    "expected_rows": 4690,
+    "weeks_per_region": {
+      "hhs1": 469,
+      "hhs10": 469,
+      "hhs2": 469,
+      "hhs3": 469,
+      "hhs4": 469,
+      "hhs5": 469,
+      "hhs6": 469,
+      "hhs7": 469,
+      "hhs8": 469,
+      "hhs9": 469
+    },
+    "week_gaps_days": {
+      "hhs1": [
+        7
+      ],
+      "hhs10": [
+        7
+      ],
+      "hhs2": [
+        7
+      ],
+      "hhs3": [
+        7
+      ],
+      "hhs4": [
+        7
+      ],
+      "hhs5": [
+        7
+      ],
+      "hhs6": [
+        7
+      ],
+      "hhs7": [
+        7
+      ],
+      "hhs8": [
+        7
+      ],
+      "hhs9": [
+        7
+      ]
+    },
+    "duplicate_region_weeks": 0,
+    "missing_wili": 0,
+    "zero_or_negative_wili": 0,
+    "columns_entirely_blank": [
+      "num_age_2"
+    ],
+    "issue_range": [
+      201740,
+      202039
+    ],
+    "lag_weeks_range": [
+      52,
+      365
+    ]
+  },
+  "summary": {
+    "wili_median": 1.3,
+    "wili_iqr": [
+      0.76,
+      2.2
+    ],
+    "wili_range": [
+      0.047,
+      12.71
+    ],
+    "offseason_mean_weeks_20_39": 0.84,
+    "peak_season_week_median": 18.0,
+    "share_peaks_season_weeks_10_25": 0.978,
+    "median_regional_peak_by_season": {
+      "2010–11": 4.45,
+      "2011–12": 2.25,
+      "2012–13": 5.65,
+      "2013–14": 3.83,
+      "2014–15": 5.81,
+      "2015–16": 3.52,
+      "2016–17": 4.76,
+      "2017–18": 7.23,
+      "2018–19": 4.94
+    },
+    "region_mean_wili": {
+      "1": 1.16,
+      "2": 2.21,
+      "3": 1.77,
+      "4": 1.79,
+      "5": 1.44,
+      "6": 3.05,
+      "7": 1.45,
+      "8": 1.23,
+      "9": 2.18,
+      "10": 1.03
+    },
+    "between_region_corr_median": 0.83,
+    "between_region_corr_min": 0.71,
+    "lag2_autocorr_by_region": {
+      "hhs1": 0.91,
+      "hhs2": 0.9,
+      "hhs3": 0.85,
+      "hhs4": 0.87,
+      "hhs5": 0.87,
+      "hhs6": 0.89,
+      "hhs7": 0.88,
+      "hhs8": 0.91,
+      "hhs9": 0.87,
+      "hhs10": 0.85
+    }
+  }
+}

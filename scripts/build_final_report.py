@@ -54,5 +54,6 @@ for i,pg in enumerate(report):
  for b in pg['blocks']:
   if 'p'in b:d.add_paragraph(b['p'])
   elif 'h'in b:d.add_heading(b['h'],2)
+  elif 'img'in b:d.add_picture(str(ROOT/b['img']),width=Inches(7.0));d.add_paragraph(b['caption'],'Caption')
   else:addtable(d,b['table']);d.add_paragraph(b['caption'],'Caption')
 d.save(ROOT/'reports/final-report.docx')

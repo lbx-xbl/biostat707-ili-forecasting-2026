@@ -30,6 +30,7 @@ MAE, RMSE, and WIS are in percentage points; lower is better. These samples and 
 
 | Stage | Methods and reproduction notes | Saved report | Predictions and summary scores |
 | --- | --- | --- | --- |
+| Exploratory analysis and missing-data audit | [Script](scripts/eda_missingness.py); report section "Data, models, and chronological evaluation" | [Figure](outputs/eda/eda_seasonality.png) | [peaks by season and region](outputs/eda/season_region_peaks.csv), [summary](outputs/eda/eda_summary.json) |
 | v0.1 Pilot | [Pilot specification](SPEC.md), [pilot notes](README_PILOT.md) | [HTML](outputs/demo_v0_1/demo_report.html) | [predictions](outputs/demo_v0_1/predictions.csv), [metrics](outputs/demo_v0_1/metrics.csv) |
 | v0.2 Rolling origin | [README](README_ROLLING.md) | [HTML](outputs/rolling_v0_2/rolling_report.html) | [predictions](outputs/rolling_v0_2/predictions.csv), [metrics](outputs/rolling_v0_2/metrics.csv) |
 | v0.3 Frozen diagnostics | [README](README_DIAGNOSTICS.md) | [HTML](outputs/diagnostics_v0_3/diagnostics_report.html) | [bootstrap intervals](outputs/diagnostics_v0_3/bootstrap_intervals.csv), [CORP](outputs/diagnostics_v0_3/calibration_components.csv) |
@@ -62,6 +63,7 @@ python run_rolling.py --config config/rolling.json --output-dir outputs/rolling_
 python run_diagnostics.py --config config/diagnostics.json --output-dir outputs/diagnostics_reproduction
 python run_probabilistic.py --config config/probabilistic.json --output-dir outputs/probabilistic_reproduction
 python run_vintage.py --config config/vintage.json --output-dir outputs/vintage_reproduction
+python scripts/eda_missingness.py --output-dir outputs/eda_reproduction
 ```
 
 Stage configurations explicitly select their input files. The last three commands use the committed frozen inputs by default; they do not automatically consume the preceding command's new output. Adjust a copied config to chain new runs. The vintage command refits models under each data regime. Original `verify_*.py` scripts include historical archive-preservation assertions and expect the original companion archive layout; their saved verification records are retained unchanged. For this formal repository, use `scripts/verify_submission.py` as documented above. Do not run verifiers with `python -O`.

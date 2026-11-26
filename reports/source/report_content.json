@@ -100,6 +100,31 @@
       },
       {
         "p": "The expanded Ridge grid was {0.1, 1, 10, 100, 1,000, 10,000, 100,000}. Selected values by outer season were 10, 1, 10, 100, 100, and 0.1. None exceeded 100, so the pilot’s boundary choice did not imply that stronger penalties would improve later evaluations. Final LSTM refit epochs were 56, 38, 36, 11, 21, and 27."
+      },
+      {
+        "h": "Exploratory analysis"
+      },
+      {
+        "p": "Figure 1 summarizes the series before modeling. wILI is strongly seasonal. Across all 4,690 region-weeks the median is 1.30% (interquartile range 0.76–2.20%), and the off-season mean (MMWR weeks 20–39) is 0.84%. Of the 90 region-season peaks, 98% fall between mid-December and late March, and the median peak is in early February (MMWR week 6). Peak timing still shifts by several weeks between seasons, from late December (2012–13, 2014–15) to early March (2011–12, 2015–16)."
+      },
+      {
+        "p": "Severity varies more than timing. The median regional peak ranged from 2.25% in 2011–12, the mildest season, to 7.23% in 2017–18, the most severe and higher than any earlier season. Region 6 had the highest peak in every season (mean 3.05%; 12.71% in 2017–18), whereas Regions 1, 8, and 10 had means between 1.0% and 1.2%."
+      },
+      {
+        "p": "These features shaped the design. Within each region, the correlation between wILI and its value two weeks earlier was 0.85–0.91, so persistence is a strong baseline and recent lags carry most of the signal. Regions move together (median pairwise correlation 0.83, minimum 0.71), so region-weeks are not independent observations; this is why regions are pooled in one model and the block bootstrap below resamples whole weeks with all ten regions. A fixed same-week seasonal mean cannot follow shifting peak timing, which anticipates its weak performance in Table 2. Finally, 2017–18 lies above the range of all earlier training seasons, which anticipates the interval undercoverage reported for that season."
+      },
+      {
+        "img": "outputs/eda/eda_seasonality.png",
+        "caption": "Figure 1. Exploratory summary of the committed ILINet snapshot, 2010w40–2019w39. A: weekly median wILI across the ten HHS regions, by season; the mildest (2011–12) and most severe (2017–18) seasons are highlighted. B: peak weekly wILI for each season and region. Produced by scripts/eda_missingness.py from data/normalized.csv; summary values are in outputs/eda/eda_summary.json."
+      },
+      {
+        "h": "Missing data and data quality"
+      },
+      {
+        "p": "The modeling snapshot has no missing outcome values. All ten regions have 469 consecutive weekly observations from 2010w40 to 2019w39 (4,690 of 4,690 expected region-weeks), with 7-day spacing, no duplicate region-weeks, and no zero or negative wILI. Season 2014–15 contains MMWR week 53, which is a calendar feature, not a gap. The loader (src/data.py) checks for this complete panel and stops with an error if a week is missing, duplicated, or non-finite, instead of imputing. No imputation was therefore performed in v0.1–v0.4. One unused API field (num_age_2, an age-group count) is blank in every row; the models use only wILI."
+      },
+      {
+        "p": "This completeness partly reflects the snapshot itself. It holds finalized values issued 52 to 365 weeks after each epidemiological week (issues 2017w40–2020w39), after reporting backfill had settled. Values available in real time were provisional and could be absent. The historical-vintage analysis (v0.5) addresses this directly. When a historical snapshot lacked a needed 12-week history, label, or seasonal reference value, the window was excluded from both the AsOf and MatchedRevised regimes rather than filled with revised values, because filling them would leak later information into earlier forecasts. Eligibility was 40% of test windows in 2013–14 and 92–96% in later seasons (2,540 of 3,010 overall). Because exclusions cluster in the earliest season, the vintage comparison describes a different population from the full rolling evaluation, and the excluded windows may not be missing at random with respect to forecast difficulty."
       }
     ]
   },
