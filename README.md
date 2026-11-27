@@ -82,7 +82,7 @@ Report authoring is separate from model dependencies: `scripts/build_final_repor
 | Lanbu Xi | Recurrent-model lead |
 | Michael (Shuyang) Yu | Evaluation and report lead |
 
-All commits to this repository were made from two accounts: lbx-xbl (Lanbu Xi) and bz2357-create (Bowen Zhang). Work by the other members was shared within the team and committed through these two accounts. The commit history therefore shows who uploaded files, not who did each part of the work. Each member's individual contribution statement describes their own work.
+All commits to this repository were made from two accounts: lbx-xbl (Lanbu Xi) and bz2357-create (Bowen Zhang). Work by the other members was shared within the team and committed through these two accounts. The commit history therefore shows who uploaded files, not who did each part of the work. Each member's individual contribution statement describes their own work; all five statements are in [CONTRIBUTIONS.md](CONTRIBUTIONS.md).
 
 ## Limitations and AI disclosure
 
