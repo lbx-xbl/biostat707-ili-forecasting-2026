@@ -72,6 +72,18 @@ The original [data downloader](scripts/download_ili_data.py) remains available, 
 
 Report authoring is separate from model dependencies: `scripts/build_final_report.py` requires `python-docx` and rebuilds the DOCX from `reports/source/report_content.json`. The PDF was rendered and visually checked using LibreOffice; reports/source/facts.json retains primary-table source rows and hashes. Model artifacts use Python serialization; load only trusted files.
 
+## Team roles and commit history
+
+| Member | Role |
+| --- | --- |
+| Bowen (Bofan) Zhang | Data and provenance lead |
+| Yufei Wang | Temporal validation lead |
+| Leslie (Jiaxiang) Xue | Baseline and tree-model lead |
+| Lanbu Xi | Recurrent-model lead |
+| Michael (Shuyang) Yu | Evaluation and report lead |
+
+All commits to this repository were made from two accounts: lbx-xbl (Lanbu Xi) and bz2357-create (Bowen Zhang). Work by the other members was shared within the team and committed through these two accounts. The commit history therefore shows who uploaded files, not who did each part of the work. Each member's individual contribution statement describes their own work.
+
 ## Limitations and AI disclosure
 
 The study contains six historical outer seasons, one small LSTM configuration/seed, dependent regional series, and retrospective protocol development after viewing the pilot. Residual distributions pool regions and reuse the validation season used for model selection. Historical vintage gaps exclude 15.6% of the original test windows, and release dates approximate rather than prove intraday availability. Full limitations and conditional interpretations are in the final report.
