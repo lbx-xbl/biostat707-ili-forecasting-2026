@@ -41,7 +41,7 @@ Download self-contained HTML files to view them in a browser; GitHub's source vi
 
 ## Verify the committed results without retraining
 
-The analysis environment was Python 3.11.5 on macOS arm64. Dependencies are pinned in [requirements.txt](requirements.txt). A fresh installation on other machines has not been verified.
+The analysis environment was Python 3.11.5 on macOS arm64. Dependencies are pinned in [requirements.txt](requirements.txt). On 27 November 2026 a fresh download of this repository was also checked on Linux x86-64 with Python 3.11 and a new environment installed from requirements.txt: all 70 tests passed, `scripts/verify_submission.py` passed, and every stage below was rerun (see the next section).
 
 ```bash
 python3.11 -m venv .venv
@@ -59,14 +59,18 @@ The committed data caches are sufficient; a new download is not required. Use ne
 
 ```bash
 python run_demo.py --config config/demo.json --output-dir outputs/demo_reproduction
-python run_rolling.py --config config/rolling.json --output-dir outputs/rolling_reproduction
-python run_diagnostics.py --config config/diagnostics.json --output-dir outputs/diagnostics_reproduction
-python run_probabilistic.py --config config/probabilistic.json --output-dir outputs/probabilistic_reproduction
-python run_vintage.py --config config/vintage.json --output-dir outputs/vintage_reproduction
+python scripts/reproduce_stage.py rolling --config config/rolling.json --output-dir outputs/rolling_reproduction
+python scripts/reproduce_stage.py diagnostics --config config/diagnostics.json --output-dir outputs/diagnostics_reproduction
+python scripts/reproduce_stage.py probabilistic --config config/probabilistic.json --output-dir outputs/probabilistic_reproduction
+python scripts/reproduce_stage.py vintage --config config/vintage.json --output-dir outputs/vintage_reproduction
 python scripts/eda_missingness.py --output-dir outputs/eda_reproduction
 ```
 
-Stage configurations explicitly select their input files. The last three commands use the committed frozen inputs by default; they do not automatically consume the preceding command's new output. Adjust a copied config to chain new runs. The vintage command refits models under each data regime. Original `verify_*.py` scripts include historical archive-preservation assertions and expect the original companion archive layout; their saved verification records are retained unchanged. For this formal repository, use `scripts/verify_submission.py` as documented above. Do not run verifiers with `python -O`.
+Use `scripts/reproduce_stage.py` for the rolling, diagnostics, probabilistic, and vintage stages. The original `run_rolling.py`, `run_diagnostics.py`, `run_probabilistic.py`, and `run_vintage.py` first check that development files are unchanged, and some of those files (companion ZIP archives, setup logs, progress notes) were never in this repository, so in a fresh clone they stop before any analysis. Those scripts are frozen and hash-checked, so they were not edited. The wrapper runs each stage unchanged and still checks every frozen file that is in the repository; it only skips files that are not in the repository, plus README.md and .gitignore, which were rewritten for this repository.
+
+In the 27 November 2026 Linux check, the stages took about 0.5, 2.6, 0.1, 0.3, and 4.6 minutes respectively on a 2-CPU machine. Rerun results matched the committed outputs: diagnostics and probabilistic outputs to within 1e-14, and the pilot, rolling, and vintage outputs, which retrain models including the LSTM, to within 4e-5 in every metric (rounded report values unchanged). Small differences come from floating-point arithmetic on a different operating system.
+
+Stage configurations explicitly select their input files. The diagnostics, probabilistic, and vintage commands use the committed frozen inputs by default; they do not automatically consume the preceding command's new output. Adjust a copied config to chain new runs. The vintage command refits models under each data regime. Original `verify_*.py` scripts include historical archive-preservation assertions and expect the original companion archive layout; their saved verification records are retained unchanged. For this formal repository, use `scripts/verify_submission.py` as documented above. Do not run verifiers with `python -O`.
 
 The original [data downloader](scripts/download_ili_data.py) remains available, including `--verify-only`. Downloading again can replace the snapshot with revised observations and should be done only in a separate checkout when intentionally constructing a new dataset.
 
